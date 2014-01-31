@@ -55,7 +55,7 @@
 
 - (void) foursquareConnectionTest;
 {
-    NSString* connectionString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=2EHUQ3D3IZTDR0IWNUERMDBBTNFQN4ZC5FHCHUFOK4C4DUQR&client_secret=O2PYVKLQ0CSPMA143QDGNKLOZXUCY5MZDDSKWDZKP02XRZFE&v=20130815&ll=%f,%f", _latitude, _latitude];
+    NSString* connectionString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=2EHUQ3D3IZTDR0IWNUERMDBBTNFQN4ZC5FHCHUFOK4C4DUQR&client_secret=O2PYVKLQ0CSPMA143QDGNKLOZXUCY5MZDDSKWDZKP02XRZFE&v=20130815&ll=%f,%f&categoryId=4d4b7105d754a06374d81259", _latitude, _longitude];
     
    // NSLog( @"%@", [self getDataFrom:connectionString ] );
     
@@ -63,14 +63,19 @@
     NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     
     NSError* e = nil;
-    id jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&e];
+    NSDictionary* jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&e];
     
     if( e )
     {
         NSLog(@"Error: %@", e);
     }
     else{
-        NSLog(@"Json output: %@", jsonData);
+        NSArray* jsonVenues = jsonData[@"response"][@"venues"];
+        for( int i = 0; i < jsonVenues.count; ++i )
+        {
+            NSLog(@"Venue %i info %@", i, jsonVenues[ i ][@"name"]);
+        }
+        //NSLog(@"Json output: %@", jsonVenues);
     }
 }
 
