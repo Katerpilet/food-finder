@@ -19,6 +19,7 @@
 		3F21C917189AC11200F51101 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F21C8FF189AC11200F51101 /* UIKit.framework */; };
 		3F21C91F189AC11200F51101 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F21C91D189AC11200F51101 /* InfoPlist.strings */; };
 		3F21C921189AC11200F51101 /* foursquareAPIDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F21C920189AC11200F51101 /* foursquareAPIDemoTests.m */; };
+		3F8C2039189B227700FE34E1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8C2038189B227700FE34E1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		3F21C91C189AC11200F51101 /* foursquareAPIDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foursquareAPIDemoTests-Info.plist"; sourceTree = "<group>"; };
 		3F21C91E189AC11200F51101 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F21C920189AC11200F51101 /* foursquareAPIDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foursquareAPIDemoTests.m; sourceTree = "<group>"; };
+		3F8C2038189B227700FE34E1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8C2039189B227700FE34E1 /* CoreLocation.framework in Frameworks */,
 				3F21C8FE189AC11200F51101 /* CoreGraphics.framework in Frameworks */,
 				3F21C900189AC11200F51101 /* UIKit.framework in Frameworks */,
 				3F21C8FC189AC11200F51101 /* Foundation.framework in Frameworks */,
@@ -96,6 +99,7 @@
 		3F21C8FA189AC11200F51101 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F8C2038189B227700FE34E1 /* CoreLocation.framework */,
 				3F21C8FB189AC11200F51101 /* Foundation.framework */,
 				3F21C8FD189AC11200F51101 /* CoreGraphics.framework */,
 				3F21C8FF189AC11200F51101 /* UIKit.framework */,
@@ -441,6 +445,7 @@
 				3F21C926189AC11200F51101 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F21C927189AC11200F51101 /* Build configuration list for PBXNativeTarget "foursquareAPIDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +454,7 @@
 				3F21C929189AC11200F51101 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

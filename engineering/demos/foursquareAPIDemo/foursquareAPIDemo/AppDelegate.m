@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+{
+    CLLocationManager* _locationManager;
+    CLLocationDegrees _latitude, _longitude;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,6 +20,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self startLocationUpdate]; // first figure out location
+    
     return YES;
 }
 
@@ -48,13 +55,67 @@
 
 - (void) foursquareConnectionTest;
 {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:[NSURL URLWithString:
-                                                 @"https://api.foursquare.com/v2/venues/search?2EHUQ3D3IZTDR0IWNUERMDBBTNFQN4ZC5FHCHUFOK4C4DUQR"]];
+    NSString* connectionString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=2EHUQ3D3IZTDR0IWNUERMDBBTNFQN4ZC5FHCHUFOK4C4DUQR&client_secret=O2PYVKLQ0CSPMA143QDGNKLOZXUCY5MZDDSKWDZKP02XRZFE&v=20130815&ll=%f,%f", _latitude, _latitude];
     
-    [request setHTTPMethod:@"GET"];
+   // NSLog( @"%@", [self getDataFrom:connectionString ] );
     
+    NSString* dataString = [self getDataFrom:connectionString];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
     
+    NSError* e = nil;
+    id jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&e];
+    
+    if( e )
+    {
+        NSLog(@"Error: %@", e);
+    }
+    else{
+        NSLog(@"Json output: %@", jsonData);
+    }
 }
 
+- (NSString *) getDataFrom:(NSString *)url{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"GET"];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200){
+        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+        return nil;
+    }
+    
+    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
+}
+
+- (void) startLocationUpdate
+{
+    if( !_locationManager )
+    {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    _locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locationManager.distanceFilter = 100;  // how often new events should occur
+    
+    [_locationManager startUpdatingLocation];
+}
+
+- (void) locationManager:(CLLocationManager*) manager didUpdateLocations:(NSArray *)locations;
+{
+    CLLocation* location = [locations lastObject];
+    NSLog(@"Lat/Lon: %f, %f", location.coordinate.latitude, location.coordinate.longitude);
+    [_locationManager stopUpdatingLocation];
+    
+    _latitude = location.coordinate.latitude;
+    _longitude = location.coordinate.longitude;
+    
+    // then query for location
+    [self foursquareConnectionTest];
+}
 @end
