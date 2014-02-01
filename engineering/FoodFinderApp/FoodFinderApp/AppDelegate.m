@@ -9,10 +9,14 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+{
+    AppManager* _appManager;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    _appManager = [[AppManager alloc] init];
     return YES;
 }
 							

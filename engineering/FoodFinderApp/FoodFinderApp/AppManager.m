@@ -9,5 +9,49 @@
 #import "AppManager.h"
 
 @implementation AppManager
+{
+    FoursquareConnector* _foursquareConnector;
+    CLLocationManager* _locationManager;
+    CLLocationDegrees _latitude, _longitude;
+}
+/**************** LOCATION SETUP ****************/
+-(void) initLocationDelegate
+{
+    if( !_locationManager )
+    {
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    _locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locationManager.distanceFilter = DISTANCE_FILTER_CHANGE;
+    
+    [_locationManager startUpdatingLocation];
+}
 
+- (void) locationManager:(CLLocationManager*) manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation* location = [locations lastObject];
+    NSLog(@"Lat/Lon Updated: %f, %f", location.coordinate.latitude, location.coordinate.longitude);
+
+    _latitude = location.coordinate.latitude;
+    _longitude = location.coordinate.longitude;
+    
+    NSArray* restaurauntArray = [_foursquareConnector getRestaurauntListWithLongitude:_longitude andLatitude:_latitude];
+    NSLog(@"Restauraunts: %@", restaurauntArray);
+    
+    NSDictionary* menus = [_foursquareConnector getMenuFromRestauraunt: restaurauntArray[ 1 ][@"id"] ];
+    
+}
+
+-(id) init
+{
+    self = [super init];
+    _foursquareConnector = [[FoursquareConnector alloc] init];
+    [self initLocationDelegate];
+    
+
+    
+    return self;
+}
 @end

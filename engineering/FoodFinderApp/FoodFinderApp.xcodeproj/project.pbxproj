@@ -24,6 +24,9 @@
 		3F997737189C3FFF00D77A0C /* FoodFinderAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997736189C3FFF00D77A0C /* FoodFinderAppTests.m */; };
 		3F997742189C447100D77A0C /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997741189C447100D77A0C /* AppManager.m */; };
 		3F997746189C49F600D77A0C /* FoodDatabaseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997745189C49F600D77A0C /* FoodDatabaseConnector.m */; };
+		3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997748189C4F1400D77A0C /* FoursquareConnector.m */; };
+		3F99774B189C5A4900D77A0C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99774A189C5A4900D77A0C /* CoreLocation.framework */; };
+		3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99774E189C7BBC00D77A0C /* Restauraunt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,11 @@
 		3F997743189C44EB00D77A0C /* PFoodDatabaseConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFoodDatabaseConnector.h; sourceTree = "<group>"; };
 		3F997744189C49F600D77A0C /* FoodDatabaseConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodDatabaseConnector.h; sourceTree = "<group>"; };
 		3F997745189C49F600D77A0C /* FoodDatabaseConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodDatabaseConnector.m; sourceTree = "<group>"; };
+		3F997747189C4F1400D77A0C /* FoursquareConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareConnector.h; sourceTree = "<group>"; };
+		3F997748189C4F1400D77A0C /* FoursquareConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareConnector.m; sourceTree = "<group>"; };
+		3F99774A189C5A4900D77A0C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F99774D189C7BBC00D77A0C /* Restauraunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restauraunt.h; sourceTree = "<group>"; };
+		3F99774E189C7BBC00D77A0C /* Restauraunt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restauraunt.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F99774B189C5A4900D77A0C /* CoreLocation.framework in Frameworks */,
 				3F99770B189C3FFF00D77A0C /* CoreGraphics.framework in Frameworks */,
 				3F99770D189C3FFF00D77A0C /* UIKit.framework in Frameworks */,
 				3F997709189C3FFF00D77A0C /* Foundation.framework in Frameworks */,
@@ -111,6 +120,7 @@
 		3F997707189C3FFF00D77A0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F99774A189C5A4900D77A0C /* CoreLocation.framework */,
 				3F997708189C3FFF00D77A0C /* Foundation.framework */,
 				3F99770A189C3FFF00D77A0C /* CoreGraphics.framework */,
 				3F99770C189C3FFF00D77A0C /* UIKit.framework */,
@@ -122,6 +132,7 @@
 		3F99770E189C3FFF00D77A0C /* FoodFinderApp */ = {
 			isa = PBXGroup;
 			children = (
+				3F99774C189C7B9D00D77A0C /* FoodDatabaseComponents */,
 				3F997717189C3FFF00D77A0C /* AppDelegate.h */,
 				3F997718189C3FFF00D77A0C /* AppDelegate.m */,
 				3F99771A189C3FFF00D77A0C /* Main.storyboard */,
@@ -136,6 +147,8 @@
 				3F997743189C44EB00D77A0C /* PFoodDatabaseConnector.h */,
 				3F997744189C49F600D77A0C /* FoodDatabaseConnector.h */,
 				3F997745189C49F600D77A0C /* FoodDatabaseConnector.m */,
+				3F997747189C4F1400D77A0C /* FoursquareConnector.h */,
+				3F997748189C4F1400D77A0C /* FoursquareConnector.m */,
 			);
 			path = FoodFinderApp;
 			sourceTree = "<group>";
@@ -167,6 +180,15 @@
 				3F997733189C3FFF00D77A0C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F99774C189C7B9D00D77A0C /* FoodDatabaseComponents */ = {
+			isa = PBXGroup;
+			children = (
+				3F99774D189C7BBC00D77A0C /* Restauraunt.h */,
+				3F99774E189C7BBC00D77A0C /* Restauraunt.m */,
+			);
+			name = FoodDatabaseComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,9 +290,11 @@
 			files = (
 				3F997746189C49F600D77A0C /* FoodDatabaseConnector.m in Sources */,
 				3F997719189C3FFF00D77A0C /* AppDelegate.m in Sources */,
+				3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */,
 				3F99771F189C3FFF00D77A0C /* MasterViewController.m in Sources */,
 				3F997715189C3FFF00D77A0C /* main.m in Sources */,
 				3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */,
+				3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +504,7 @@
 				3F99773C189C3FFF00D77A0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F99773D189C3FFF00D77A0C /* Build configuration list for PBXNativeTarget "FoodFinderAppTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +513,7 @@
 				3F99773F189C3FFF00D77A0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "PFoodDatabaseConnector.h"
+#import "Restauraunt.h"
 
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
-
+-(void) createRestaurauntObjects : (NSArray*) restauraunts;
+-(void) createMenuObject : (NSDictionary*) menu;
 @end
