@@ -14,7 +14,6 @@
 		3F997715189C3FFF00D77A0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997714189C3FFF00D77A0C /* main.m */; };
 		3F997719189C3FFF00D77A0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997718189C3FFF00D77A0C /* AppDelegate.m */; };
 		3F99771C189C3FFF00D77A0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F99771A189C3FFF00D77A0C /* Main.storyboard */; };
-		3F99771F189C3FFF00D77A0C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99771E189C3FFF00D77A0C /* MasterViewController.m */; };
 		3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997721189C3FFF00D77A0C /* DetailViewController.m */; };
 		3F997724189C3FFF00D77A0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F997723189C3FFF00D77A0C /* Images.xcassets */; };
 		3F99772B189C3FFF00D77A0C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99772A189C3FFF00D77A0C /* XCTest.framework */; };
@@ -27,6 +26,7 @@
 		3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997748189C4F1400D77A0C /* FoursquareConnector.m */; };
 		3F99774B189C5A4900D77A0C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99774A189C5A4900D77A0C /* CoreLocation.framework */; };
 		3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99774E189C7BBC00D77A0C /* Restauraunt.m */; };
+		3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997795189C8CD600D77A0C /* MasterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,6 @@
 		3F997717189C3FFF00D77A0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3F997718189C3FFF00D77A0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F99771B189C3FFF00D77A0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3F99771D189C3FFF00D77A0C /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		3F99771E189C3FFF00D77A0C /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3F997720189C3FFF00D77A0C /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3F997721189C3FFF00D77A0C /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		3F997723189C3FFF00D77A0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -71,6 +69,8 @@
 		3F99774A189C5A4900D77A0C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F99774D189C7BBC00D77A0C /* Restauraunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restauraunt.h; sourceTree = "<group>"; };
 		3F99774E189C7BBC00D77A0C /* Restauraunt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restauraunt.m; sourceTree = "<group>"; };
+		3F997794189C8CD600D77A0C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		3F997795189C8CD600D77A0C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +101,8 @@
 		3F9976FC189C3FFF00D77A0C = {
 			isa = PBXGroup;
 			children = (
+				3F997794189C8CD600D77A0C /* MasterViewController.h */,
+				3F997795189C8CD600D77A0C /* MasterViewController.m */,
 				3F99770E189C3FFF00D77A0C /* FoodFinderApp */,
 				3F997730189C3FFF00D77A0C /* FoodFinderAppTests */,
 				3F997707189C3FFF00D77A0C /* Frameworks */,
@@ -136,8 +138,6 @@
 				3F997717189C3FFF00D77A0C /* AppDelegate.h */,
 				3F997718189C3FFF00D77A0C /* AppDelegate.m */,
 				3F99771A189C3FFF00D77A0C /* Main.storyboard */,
-				3F99771D189C3FFF00D77A0C /* MasterViewController.h */,
-				3F99771E189C3FFF00D77A0C /* MasterViewController.m */,
 				3F997720189C3FFF00D77A0C /* DetailViewController.h */,
 				3F997721189C3FFF00D77A0C /* DetailViewController.m */,
 				3F997723189C3FFF00D77A0C /* Images.xcassets */,
@@ -291,8 +291,8 @@
 				3F997746189C49F600D77A0C /* FoodDatabaseConnector.m in Sources */,
 				3F997719189C3FFF00D77A0C /* AppDelegate.m in Sources */,
 				3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */,
-				3F99771F189C3FFF00D77A0C /* MasterViewController.m in Sources */,
 				3F997715189C3FFF00D77A0C /* main.m in Sources */,
+				3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */,
 				3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */,
 				3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
