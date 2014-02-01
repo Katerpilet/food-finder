@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UIViewController
-
+static const CGFloat OFFSET_FOR_KEYBOARD = 150.0f;
+@interface MasterViewController : UIViewController<UITextFieldDelegate>
+-(void)setMovedViewUp:(BOOL)moveUp; 
 @end
