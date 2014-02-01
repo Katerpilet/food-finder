@@ -27,6 +27,8 @@
 		3F99774B189C5A4900D77A0C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99774A189C5A4900D77A0C /* CoreLocation.framework */; };
 		3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99774E189C7BBC00D77A0C /* Restauraunt.m */; };
 		3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997795189C8CD600D77A0C /* MasterViewController.m */; };
+		3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */; };
+		3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,10 @@
 		3F99774E189C7BBC00D77A0C /* Restauraunt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restauraunt.m; sourceTree = "<group>"; };
 		3F997794189C8CD600D77A0C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		3F997795189C8CD600D77A0C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		3FAA3F6A189C9C6100350828 /* FoodSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodSelectionViewController.h; sourceTree = "<group>"; };
+		3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodSelectionViewController.m; sourceTree = "<group>"; };
+		3FAA3F6D189C9DB600350828 /* RestaurauntSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurauntSelectionViewController.h; sourceTree = "<group>"; };
+		3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurauntSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,10 @@
 		3F9976FC189C3FFF00D77A0C = {
 			isa = PBXGroup;
 			children = (
+				3FAA3F6D189C9DB600350828 /* RestaurauntSelectionViewController.h */,
+				3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */,
+				3FAA3F6A189C9C6100350828 /* FoodSelectionViewController.h */,
+				3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */,
 				3F997794189C8CD600D77A0C /* MasterViewController.h */,
 				3F997795189C8CD600D77A0C /* MasterViewController.m */,
 				3F99770E189C3FFF00D77A0C /* FoodFinderApp */,
@@ -294,7 +304,9 @@
 				3F997715189C3FFF00D77A0C /* main.m in Sources */,
 				3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */,
 				3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */,
+				3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */,
 				3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */,
+				3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
