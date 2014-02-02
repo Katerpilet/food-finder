@@ -11,6 +11,7 @@
 @implementation FoodDatabaseConnector
 {
     NSMutableArray* _restaurauntList;
+    NSMutableArray* _menuList;
 }
 
 -(id)init
@@ -21,6 +22,20 @@
     _restaurauntList[ 1 ] = [[Restauraunt alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
     _restaurauntList[ 2 ] = [[Restauraunt alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
     _restaurauntList[ 3 ] = [[Restauraunt alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
+    
+    _menuList = [[NSMutableArray alloc] initWithCapacity:3];
+    _menuList[ 0 ] = [[NSMutableArray alloc] initWithCapacity:2];
+    _menuList[ 1 ] = [[NSMutableArray alloc] initWithCapacity:2];
+    _menuList[ 2 ] = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    _menuList[ 0 ][ 0 ] = @"Breakfast";
+    _menuList[ 0 ][ 1 ] = [NSArray arrayWithObjects:@"Tortilla Soup", @"Avacado Chilli", nil];
+    
+    _menuList[ 1 ][ 0 ] = @"Lunch";
+    _menuList[ 1 ][ 1 ] = [NSArray arrayWithObjects:@"Bacon Burger", @"Turnip Juice", @"Ribs", nil];
+    
+    _menuList[ 2 ][ 0 ] = @"Dinner";
+    _menuList[ 2 ][ 1 ] = [NSArray arrayWithObjects:@"Steak", @"Meatballs", @"Pasghetii", nil];
     return self;
 }
 -(void) createRestaurauntObjects : (NSArray*) restauraunts
@@ -43,5 +58,40 @@
 -(NSArray*)getRestaurauntList
 {
     return _restaurauntList;
+}
+
+-(NSArray*) getMenu
+{
+    return _menuList;
+}
+
+-(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
+{
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    [requestString stringByAppendingString:REGISTRATION_SCRIPT];
+    
+    NSString* receivedData = [self getDataFrom:requestString];
+    
+    return receivedData != nil;
+}
+
+//http://stackoverflow.com/questions/9404104/simple-objective-c-get-request
+- (NSString *) getDataFrom:(NSString *)url
+{
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setHTTPMethod:@"GET"];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+    
+    if([responseCode statusCode] != 200){
+        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+        return nil;
+    }
+    
+    return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
 }
 @end

@@ -65,4 +65,9 @@
 {
     return [_foodDatabaseConnector getRestaurauntList];
 }
+
+-(NSArray*) getMenu
+{
+    return [_foodDatabaseConnector getMenu];
+}
 @end

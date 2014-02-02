@@ -19,5 +19,5 @@ static const CLLocationDistance DISTANCE_FILTER_CHANGE = 100.0;
 -(id) init;
 -(void) getStuff;
 -(NSArray*) getRestaurauntList;
-
+-(NSArray*) getMenu;
 @end

@@ -58,7 +58,7 @@
     for( int i = 0; i < [_sampleRestaurauntArray count]; ++i)
     {
         Restauraunt* currentRestauraut = _sampleRestaurauntArray[ i ];
-        _restaurauntNameToId[ currentRestauraut.name ] = currentRestauraut.idFSRestauraunt;
+        _restaurauntNameToId[ currentRestauraut.name ] = currentRestauraut;
     }
     
     Restauraunt* firstRestauraunt = _sampleRestaurauntArray[ 0 ];
@@ -104,8 +104,8 @@
     else
     {
         Restauraunt* currentRestauraunt = _sampleRestaurauntArray[ 0 ];
-        selectedRestauraunt = _restaurauntNameToId[ currentRestauraunt.name ];
+        selectedRestauraunt = currentRestauraunt.name;
     }
-    navigationController.restaurauntId = _restaurauntNameToId[ selectedRestauraunt ];
+    navigationController.currentRestauraunt = _restaurauntNameToId[ selectedRestauraunt ];
 }
 @end
