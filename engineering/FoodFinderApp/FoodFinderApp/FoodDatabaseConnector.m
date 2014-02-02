@@ -20,10 +20,10 @@
 {
     self = [super init];
     _restaurauntList = [[NSMutableArray alloc] initWithCapacity:4];
-    _restaurauntList[ 0 ] = [[Restauraunt alloc] initWithName:@"Blakes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42b" globalRating:4 priceRating:1];
-    _restaurauntList[ 1 ] = [[Restauraunt alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
-    _restaurauntList[ 2 ] = [[Restauraunt alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
-    _restaurauntList[ 3 ] = [[Restauraunt alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
+    _restaurauntList[ 0 ] = [[Restaurant alloc] initWithName:@"Blakes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42b" globalRating:4 priceRating:1];
+    _restaurauntList[ 1 ] = [[Restaurant alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
+    _restaurauntList[ 2 ] = [[Restaurant alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
+    _restaurauntList[ 3 ] = [[Restaurant alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
     
     _menuList = [[NSMutableArray alloc] initWithCapacity:3];
     _menuList[ 0 ] = [[NSMutableArray alloc] initWithCapacity:2];
@@ -68,7 +68,7 @@
     return _restaurauntList;
 }
 
--(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
+-(Menu*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 {
     NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
     requestString = [requestString stringByAppendingString:MENU_SCRIPT];
@@ -79,7 +79,7 @@
     NSString* responseString = [self getDataFrom:requestString];
     
     _menu = [[Menu alloc] initWithMenuItems:responseString];
-    return _menuList;
+    return _menu;
 }
 
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;

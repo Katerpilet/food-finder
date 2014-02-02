@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 bjd. All rights reserved.
 //
 
-#import "Restauraunt.h"
+#import "Restaurant.h"
 
-@implementation Restauraunt
--(Restauraunt*) initWithName:(NSString*)name description : (NSString*)description address : (NSString*)address idFSRestaraunt : (NSString*) idFSRestauraunt globalRating : (int) globalRating priceRating : (int) priceRating
+@implementation Restaurant
+-(Restaurant*) initWithName:(NSString*)name description : (NSString*)description address : (NSString*)address idFSRestaraunt : (NSString*) idFSRestauraunt globalRating : (int) globalRating priceRating : (int) priceRating
 {
     self = [super self];
     

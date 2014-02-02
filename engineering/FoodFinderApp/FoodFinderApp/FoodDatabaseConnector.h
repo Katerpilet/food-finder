@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PFoodDatabaseConnector.h"
-#import "Restauraunt.h"
+#import "Restaurant.h"
 #import "Menu.h"
 
 static  NSString* DATABASE_URL_ = @"http://ec2-54-235-249-205.compute-1.amazonaws.com/foodfinder/";
@@ -21,7 +21,7 @@ static  NSString* MENU_SCRIPT = @"script.getRestaurantMenu.php";
 -(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
 -(NSArray*) getRestaurauntListWithUsername : (NSString*) username password : (NSString*) password latitude : (double)latitude longitude : (double)longitude;
--(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
+-(Menu*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 - (NSString *) getDataFrom:(NSString *)url;
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 @end

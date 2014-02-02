@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-#include "FoodFinderApp/Restauraunt.h"
+#include "FoodFinderApp/Restaurant.h"
 #include "AppDelegate.h"
 
 @interface FoodSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
@@ -19,7 +19,7 @@
     SKView  IBOutlet *skView;
 
 }
-@property (nonatomic, strong) Restauraunt *currentRestauraunt;
+@property (nonatomic, strong) Restaurant *currentRestauraunt;
 
 -(void)sendAchievementUnlocked;
 @end

@@ -15,8 +15,8 @@
 @implementation FoodSelectionViewController
 {
     AppManager *_appManager;
-    NSArray *_baseMenuList;
-    NSArray *_menuList;
+    MenuItemNode *_baseMenuList;
+    MenuItemNode *_menuList;
     int _depthCounter;
     bool _isFinalDepth;
     bool _isBaseDepth;
@@ -42,7 +42,7 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     _appManager = [appdelegate appManager];
     
-    _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestauraunt];
+    _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestauraunt].menuItems[ 0 ];
     _menuList = _baseMenuList;  // need to actually query for this...
     skView.alpha = 0.5f;
     skView.hidden = YES;
@@ -61,17 +61,13 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if( ![_menuList[1][ 0 ] isKindOfClass:[NSArray class]]  && !_isBaseDepth )    // if it is not a NSArray we assume everything past 0 is coo
+    if( _menuList.children == nil)    // if it is not a NSArray we assume everything past 0 is coo
     {
         _isFinalDepth = YES;
     }
     
-    if( _isBaseDepth )
-    {
-        return [_menuList count];
-    }
     // Send back the number of cells to create
-    return [_menuList[ 1 ] count] - 1;
+    return [_menuList.children count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,17 +77,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 
-    NSString *menuItem;
+    MenuItemNode *menuItem;
     if( _isFinalDepth )
     {
-        menuItem = _menuList[ 1 ][ indexPath.row ];
+        menuItem = _menuList.children[ indexPath.row ];
         [self sendAchievementUnlocked];
     }
     else
     {
-        menuItem = _menuList[ indexPath.row ][ 0 ];
+        menuItem = _menuList.children[ indexPath.row ];
     }
-    cell.textLabel.text = menuItem;
+    cell.textLabel.text = menuItem.name;
     return cell;
 }
 
@@ -110,16 +106,14 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-    if( _isFinalDepth )
+    
+    _menuList = _menuList.children[ indexPath.row ];
+    if( _menuList.children == nil )
     {
         [self performSegueWithIdentifier:@"selectionSegue" sender:tableView];
     }
-    else
-    {
-        _menuList = _menuList[ indexPath.row ];
-        _isBaseDepth = NO;
-        [tableView reloadData];
-    }
+    [tableView reloadData];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
