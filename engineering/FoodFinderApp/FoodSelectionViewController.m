@@ -45,7 +45,15 @@
     _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestaurant].menuItems[ 0 ];
     _menuList = _baseMenuList;  // need to actually query for this...
     
+    SKScene* scene = [SKScene sceneWithSize:skView.bounds.size];
+    [skView presentScene:scene];
     
+    skView.alpha = .5f;
+    NSString *particlePath = [[NSBundle mainBundle] pathForResource:@"AchievementParticle" ofType:@"sks"];
+    SKEmitterNode *achievementParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:particlePath];
+    achievementParticle.particlePosition = CGPointMake(0, 200);
+    
+    [scene addChild:achievementParticle];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,7 +76,6 @@
     if( _isFinalDepth )
     {
         menuItem = _menuList.children[ indexPath.row ];
-        [self sendAchievementUnlocked];
     }
     else
     {
@@ -97,7 +104,8 @@
     _menuList = _menuList.children[ indexPath.row ];
     if( _menuList.children == nil )
     {
-        [self performSegueWithIdentifier:@"selectionSegue" sender:tableView];
+        [self sendAchievementUnlocked];
+        
     }
     [tableView reloadData];
     
@@ -105,6 +113,15 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     skView.hidden = YES;
+    
+    [self performSegueWithIdentifier:@"selectionSegue" sender:alertView];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    FoodMenuViewController *navigationController = segue.destinationViewController;
+    
+    navigationController.selectedFood = _menuList;
 }
 
 @end

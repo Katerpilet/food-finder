@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6A75EE189EF93300D171C8 /* AchievementParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A75EA189EF93300D171C8 /* AchievementParticle.sks */; };
+		3F6A75EF189EF93300D171C8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A75EC189EF93300D171C8 /* Order.m */; };
+		3F6A75F0189EF93300D171C8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A75ED189EF93300D171C8 /* spark.png */; };
+		3F6A75F3189EFBF000D171C8 /* FoodMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A75F2189EFBF000D171C8 /* FoodMenuViewController.m */; };
 		3F997709189C3FFF00D77A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F997708189C3FFF00D77A0C /* Foundation.framework */; };
 		3F99770B189C3FFF00D77A0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99770A189C3FFF00D77A0C /* CoreGraphics.framework */; };
 		3F99770D189C3FFF00D77A0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99770C189C3FFF00D77A0C /* UIKit.framework */; };
@@ -47,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F6A75EA189EF93300D171C8 /* AchievementParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AchievementParticle.sks; sourceTree = "<group>"; };
+		3F6A75EB189EF93300D171C8 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		3F6A75EC189EF93300D171C8 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		3F6A75ED189EF93300D171C8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		3F6A75F1189EFBF000D171C8 /* FoodMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuViewController.h; sourceTree = "<group>"; };
+		3F6A75F2189EFBF000D171C8 /* FoodMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMenuViewController.m; sourceTree = "<group>"; };
 		3F997705189C3FFF00D77A0C /* FoodFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F997708189C3FFF00D77A0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F99770A189C3FFF00D77A0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -224,6 +234,10 @@
 		3F9AA1BA189D7E5200881D2D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F6A75EA189EF93300D171C8 /* AchievementParticle.sks */,
+				3F6A75EB189EF93300D171C8 /* Order.h */,
+				3F6A75EC189EF93300D171C8 /* Order.m */,
+				3F6A75ED189EF93300D171C8 /* spark.png */,
 				3FAA3F6D189C9DB600350828 /* RestaurauntSelectionViewController.h */,
 				3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */,
 				3FAA3F6A189C9C6100350828 /* FoodSelectionViewController.h */,
@@ -232,6 +246,8 @@
 				3F997795189C8CD600D77A0C /* MasterViewController.m */,
 				3F9AA1BB189D85D200881D2D /* RegistrationViewController.h */,
 				3F9AA1BC189D85D200881D2D /* RegistrationViewController.m */,
+				3F6A75F1189EFBF000D171C8 /* FoodMenuViewController.h */,
+				3F6A75F2189EFBF000D171C8 /* FoodMenuViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -312,9 +328,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6A75F0189EF93300D171C8 /* spark.png in Resources */,
 				3F997724189C3FFF00D77A0C /* Images.xcassets in Resources */,
 				3F997713189C3FFF00D77A0C /* InfoPlist.strings in Resources */,
 				3F99771C189C3FFF00D77A0C /* Main.storyboard in Resources */,
+				3F6A75EE189EF93300D171C8 /* AchievementParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +356,7 @@
 				3FA5DC87189EF00F000B41AB /* Menu.m in Sources */,
 				3FA5DC8A189EF00F000B41AB /* UserMenuItem.m in Sources */,
 				3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */,
+				3F6A75F3189EFBF000D171C8 /* FoodMenuViewController.m in Sources */,
 				3F9AA1BD189D85D200881D2D /* RegistrationViewController.m in Sources */,
 				3F997715189C3FFF00D77A0C /* main.m in Sources */,
 				3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */,
@@ -347,6 +366,7 @@
 				3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */,
 				3F99774F189C7BBC00D77A0C /* Restaurant.m in Sources */,
 				3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */,
+				3F6A75EF189EF93300D171C8 /* Order.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

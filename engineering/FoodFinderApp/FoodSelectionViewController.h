@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #include "FoodFinderApp/Restaurant.h"
 #include "AppDelegate.h"
+#include "FoodMenuViewController.h"
 
 @interface FoodSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
