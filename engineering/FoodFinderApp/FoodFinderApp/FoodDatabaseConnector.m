@@ -20,10 +20,10 @@
 {
     self = [super init];
     _restaurauntList = [[NSMutableArray alloc] initWithCapacity:4];
-    _restaurauntList[ 0 ] = [[Restaurant alloc] initWithName:@"Blakes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42b" globalRating:4 priceRating:1];
-    _restaurauntList[ 1 ] = [[Restaurant alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
-    _restaurauntList[ 2 ] = [[Restaurant alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
-    _restaurauntList[ 3 ] = [[Restaurant alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
+    _restaurauntList[ 0 ] = [[Restauraunt alloc] initWithName:@"Blakes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42b" globalRating:4 priceRating:1];
+    _restaurauntList[ 1 ] = [[Restauraunt alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
+    _restaurauntList[ 2 ] = [[Restauraunt alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
+    _restaurauntList[ 3 ] = [[Restauraunt alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
     
     _menuList = [[NSMutableArray alloc] initWithCapacity:3];
     _menuList[ 0 ] = [[NSMutableArray alloc] initWithCapacity:2];
@@ -57,33 +57,14 @@
     }
 }
 
--(NSArray*) getRestaurauntList: (NSString*) username: (NSString*) password: (double)latitude: (double)longitude
+-(NSArray*) getRestaurauntListWithUsername : (NSString*) username password : (NSString*) password latitude : (double)latitude longitude : (double)longitude
 {
-    NSArray * restaurantList = [[NSArray alloc ] init];
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    requestString = [requestString stringByAppendingString:NEARBY_RESTAURANT_SCRIPT];
     
-    NSString * latString = [ [ NSNumber numberWithDouble : latitude ] stringValue ];
-    NSString * longString = [ [ NSNumber numberWithDouble : longitude ] stringValue ];
-    
-    NSDictionary *getParams =
-    @{
-      @"username" : username,
-      @"password" : password,
-      @"latitude" : latString,
-      @"longitude" : longString
-    };
-    
-    NSString *recievedData = [self callPHPScript:@"getNearbyRestaurants" :getParams];
-    
-    NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
-    NSError * e;
-    NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
-    
-    for( int i = 0; i < [jsonRestaurantList count]; ++i)
-    {
-        NSDictionary curRestaurant = jsonRestaurantList[ i ];
-        
-    }
-    
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@&latitude=%f&longitude=%f", username, password, latitude, longitude];
+    requestString = [requestString stringByAppendingString:parameters];
+    NSString* returnString = [self getDataFrom:requestString];
     return _restaurauntList;
 }
 
@@ -101,54 +82,30 @@
     return _menuList;
 }
 
--(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
+-(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 {
-    NSDictionary *getParams =
-    @{
-      @"username" : username,
-      @"password" : password
-    };
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    requestString = [requestString stringByAppendingString:REGISTRATION_SCRIPT];
     
-    NSString *recievedData = [self callPHPScript:@"registerUser" :getParams];
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@", username, password];
+    requestString = [requestString stringByAppendingString:parameters];
+    int receivedData = [[self getDataFrom:requestString] intValue];
     
-    return [recievedData isEqualToString:@"1"];
+    
+    return receivedData > 0;
 }
 
--(BOOL)validateWithUsernameAndPassword:(NSString*) username : (NSString*) password
+-(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
 {
-    NSDictionary *getParams =
-    @{
-      @"username" : username,
-      @"password" : password
-    };
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    requestString = [requestString stringByAppendingString:VALIDATE_USER_SCRIPT];
     
-    NSString *recievedData = [self callPHPScript:@"validateUser" :getParams];
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@", username, password];
+    requestString = [requestString stringByAppendingString:parameters];
+    int receivedData = [[self getDataFrom:requestString] intValue];
     
-    return [recievedData isEqualToString:@"1"];
-}
-
-- (NSString *) callPHPScript : (NSString *)scriptName : (NSDictionary *) getParams
-{
-    //Initialize to [url].php
-    NSString *requestString = [NSString stringWithFormat:@"%@script.%@.php", DATABASE_URL_, scriptName];
     
-    //Add [url].php? if there are get params
-    if ( getParams.count > 0 )
-    {
-        requestString = [NSString stringWithFormat:@"%@?", requestString];
-    }
-    
-    //Append the get params
-    for( id key in getParams )
-    {
-        requestString = [NSString stringWithFormat:@"%@%@=%@&", requestString, key, [getParams objectForKey:( key ) ] ];
-    }
-    
-    //Remove the last ampersand
-    requestString = [ requestString substringWithRange:NSMakeRange(0, [requestString length] - 1 ) ];
-    
-    //Call the script and get the response
-    return [ self getDataFrom: requestString ];
+    return receivedData > 0;
 }
 
 //http://stackoverflow.com/questions/9404104/simple-objective-c-get-request
@@ -163,8 +120,7 @@
     
     NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
     
-    if([responseCode statusCode] != 200)
-    {
+    if([responseCode statusCode] != 200){
         NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
         return nil;
     }

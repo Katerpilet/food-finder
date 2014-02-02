@@ -71,13 +71,13 @@
 {
     _userName = username;
     _password = password;
-    return [_foodDatabaseConnector registerWithUsernameAndPassword:username:password];
+    return [_foodDatabaseConnector registerWithUsername:username andPassword:password];
 }
 
 -(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
 {
     _userName = username;
     _password = password;
-    return [_foodDatabaseConnector validateWithUsernameAndPassword:username:password];
+    return [_foodDatabaseConnector validateWithUsername:username andPassword:password];
 }
 @end
