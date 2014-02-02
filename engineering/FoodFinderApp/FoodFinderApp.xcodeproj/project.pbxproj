@@ -35,6 +35,9 @@
 		3FF81169189EBBD5006B1984 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81168189EBBD5006B1984 /* MenuItem.m */; };
 		3FF8116C189EBD2D006B1984 /* UserMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8116B189EBD2D006B1984 /* UserMenuItem.m */; };
 		3FF8116F189EBD73006B1984 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8116E189EBD73006B1984 /* Order.m */; };
+		3FF81176189ED4C7006B1984 /* AchievementParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3FF81174189ED4C7006B1984 /* AchievementParticle.sks */; };
+		3FF81177189ED4C7006B1984 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF81175189ED4C7006B1984 /* spark.png */; };
+		3FF8117A189EDE59006B1984 /* FoodInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81179189EDE59006B1984 /* FoodInformationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,10 @@
 		3FF8116B189EBD2D006B1984 /* UserMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMenuItem.m; sourceTree = "<group>"; };
 		3FF8116D189EBD73006B1984 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		3FF8116E189EBD73006B1984 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		3FF81174189ED4C7006B1984 /* AchievementParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AchievementParticle.sks; sourceTree = "<group>"; };
+		3FF81175189ED4C7006B1984 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		3FF81178189EDE59006B1984 /* FoodInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodInformationViewController.h; sourceTree = "<group>"; };
+		3FF81179189EDE59006B1984 /* FoodInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodInformationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +244,10 @@
 				3F997795189C8CD600D77A0C /* MasterViewController.m */,
 				3F9AA1BB189D85D200881D2D /* RegistrationViewController.h */,
 				3F9AA1BC189D85D200881D2D /* RegistrationViewController.m */,
+				3FF81174189ED4C7006B1984 /* AchievementParticle.sks */,
+				3FF81175189ED4C7006B1984 /* spark.png */,
+				3FF81178189EDE59006B1984 /* FoodInformationViewController.h */,
+				3FF81179189EDE59006B1984 /* FoodInformationViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -317,9 +328,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FF81177189ED4C7006B1984 /* spark.png in Resources */,
 				3F997724189C3FFF00D77A0C /* Images.xcassets in Resources */,
 				3F997713189C3FFF00D77A0C /* InfoPlist.strings in Resources */,
 				3F99771C189C3FFF00D77A0C /* Main.storyboard in Resources */,
+				3FF81176189ED4C7006B1984 /* AchievementParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +367,7 @@
 				3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */,
 				3FF8116F189EBD73006B1984 /* Order.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
+				3FF8117A189EDE59006B1984 /* FoodInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

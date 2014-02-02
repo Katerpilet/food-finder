@@ -44,7 +44,18 @@
     
     _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestauraunt];
     _menuList = _baseMenuList;  // need to actually query for this...
+    skView.alpha = 0.5f;
+    skView.hidden = YES;
     
+    SKScene *scene = [SKScene sceneWithSize:skView.bounds.size];
+    scene.backgroundColor = [SKColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
+    [skView presentScene:scene];
+    
+    NSString* myParticlePath = [[NSBundle mainBundle] pathForResource:@"AchievementParticle" ofType:@"sks"];
+    SKEmitterNode* achievementParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:myParticlePath];
+    achievementParticle.position = CGPointMake(0, 100);
+    
+    [scene addChild:achievementParticle ];
     
 }
 
@@ -65,24 +76,31 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString* CellIdentifier = @"FoodCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    
+
     NSString *menuItem;
     if( _isFinalDepth )
     {
         menuItem = _menuList[ 1 ][ indexPath.row ];
+        [self sendAchievementUnlocked];
     }
     else
     {
         menuItem = _menuList[ indexPath.row ][ 0 ];
     }
     cell.textLabel.text = menuItem;
-    
     return cell;
 }
 
+-(void)sendAchievementUnlocked
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement Unlocked!" message:@"You unlocked the Dear Diary... Achievement" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    skView.hidden = NO;
+    [alert show];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -92,9 +110,20 @@
 
 - (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) indexPath
 {
-    _menuList = _menuList[ indexPath.row ];
-    _isBaseDepth = NO;
-    [tableView reloadData];
+    if( _isFinalDepth )
+    {
+        [self performSegueWithIdentifier:@"selectionSegue" sender:tableView];
+    }
+    else
+    {
+        _menuList = _menuList[ indexPath.row ];
+        _isBaseDepth = NO;
+        [tableView reloadData];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    skView.hidden = YES;
 }
 
 @end
