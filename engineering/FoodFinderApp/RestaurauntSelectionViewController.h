@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "FoodSelectionViewController.h"
 
-@interface RestaurauntSelectionViewController : UIViewController
-
+@interface RestaurauntSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+{
+    UILabel IBOutlet  *restaurauntName;
+    UILabel IBOutlet  *restaurauntPrice;
+    UILabel IBOutlet  *restaurauntLocation;
+}
+@property id delegate;
 @end

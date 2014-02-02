@@ -13,4 +13,6 @@
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
 -(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
+-(NSArray*) getRestaurauntList;
+
 @end

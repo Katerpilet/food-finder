@@ -1,28 +1,25 @@
 //
-//  MasterViewController.m
+//  RegistrationViewController.m
 //  FoodFinderApp
 //
-//  Created by Student on 1/31/14.
+//  Created by Student on 2/1/14.
 //  Copyright (c) 2014 bjd. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "RegistrationViewController.h"
 
-// Keyboard Control done with: http://stackoverflow.com/questions/1126726/how-to-make-a-uitextfield-move-up-when-keyboard-is-present
-@interface MasterViewController ()
+@interface RegistrationViewController ()
 
 @end
 
-@implementation MasterViewController
+@implementation RegistrationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
     if (self) {
         // Custom initialization
     }
-
     return self;
 }
 
@@ -62,23 +59,6 @@
     }
 }
 
--(IBAction)textFiledDidBegingEdition:(UITextField*)sender
-{
-    //[self setMovedViewUp:YES];
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
-
-
--(IBAction)textFieldEndEdit:(UITextField*)sender
-{
-    //[self setMovedViewUp:NO];
-}
-
 -(void)setMovedViewUp:(BOOL)moveUp
 {
     [UIView beginAnimations:nil context:NULL];
@@ -115,6 +95,7 @@
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
 }
+
 
 
 @end

@@ -9,14 +9,19 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
-{
-    AppManager* _appManager;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     _appManager = [[AppManager alloc] init];
+    
+    //UINavigationController *rootViewController = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window ] rootViewController];
+    //int controllerCount = [[rootViewController viewControllers] count];
+    //NSLog(@"%i", controllerCount );
+    
+    //MasterViewController *masterViewController = (MasterViewController*)[rootViewController viewControllers][ 0 ];
+    //RestaurauntSelectionViewController *restaurauntViewController = (RestaurauntSelectionViewController*)[masterViewController presentedViewController];
+    //[rootViewController nextResponder];
     return YES;
 }
 							
@@ -47,4 +52,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)test
+{
+    NSLog(@"Test");
+}
 @end

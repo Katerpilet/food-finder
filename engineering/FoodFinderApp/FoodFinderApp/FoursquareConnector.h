@@ -15,4 +15,6 @@ static NSString* const FOURSQUARE_FOOD_CATEGORY = @"4d4b7105d754a06374d81259";
 @interface FoursquareConnector : NSObject
 -(NSArray*) getRestaurauntListWithLongitude : (double) longitude andLatitude: (double) latitude;
 -(NSDictionary*) getMenuFromRestauraunt : (NSString*) restaurauntId;
+
+
 @end

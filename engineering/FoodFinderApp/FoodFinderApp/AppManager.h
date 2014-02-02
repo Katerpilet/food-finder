@@ -10,8 +10,14 @@
 #import "PFoodDatabaseConnector.h"
 #import "FoursquareConnector.h"
 #import <CoreLocation/CoreLocation.h>
+#import "PAppManager.h"
+#import "FoodDatabaseConnector.h"
+
 
 static const CLLocationDistance DISTANCE_FILTER_CHANGE = 100.0;
-@interface AppManager : NSObject<FoodDatabaseConnector>
+@interface AppManager : NSObject<FoodDatabaseConnector, PAppManager>
 -(id) init;
+-(void) getStuff;
+-(NSArray*) getRestaurauntList;
+
 @end

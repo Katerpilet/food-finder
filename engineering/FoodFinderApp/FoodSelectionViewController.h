@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FoodSelectionViewController : UIViewController
-
+@property (nonatomic, strong) NSString *restaurauntId;
 @end

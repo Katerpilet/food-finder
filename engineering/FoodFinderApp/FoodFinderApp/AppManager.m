@@ -11,6 +11,7 @@
 @implementation AppManager
 {
     FoursquareConnector* _foursquareConnector;
+    FoodDatabaseConnector* _foodDatabaseConnector;
     CLLocationManager* _locationManager;
     CLLocationDegrees _latitude, _longitude;
 }
@@ -48,10 +49,20 @@
 {
     self = [super init];
     _foursquareConnector = [[FoursquareConnector alloc] init];
+    _foodDatabaseConnector = [[FoodDatabaseConnector alloc ] init];
     [self initLocationDelegate];
     
-
     
     return self;
+}
+
+-(void) getStuff
+{
+    NSLog(@"Worked");
+}
+
+-(NSArray*) getRestaurauntList
+{
+    return [_foodDatabaseConnector getRestaurauntList];
 }
 @end
