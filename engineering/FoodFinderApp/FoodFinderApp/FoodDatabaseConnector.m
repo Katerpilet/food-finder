@@ -58,7 +58,7 @@
 -(NSArray*) getRestaurauntListWithUsername : (NSString*) username password : (NSString*) password latitude : (double)latitude longitude : (double)longitude
 {
     NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
-    requestString = [requestString stringByAppendingString:SEARCH_RESTAURANT_SCRIPT];
+    requestString = [requestString stringByAppendingString:NEARBY_RESTAURANT_SCRIPT];
     
     NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@&latitude=%f&longitude=%f", username, password, latitude, longitude];
     requestString = [requestString stringByAppendingString:parameters];

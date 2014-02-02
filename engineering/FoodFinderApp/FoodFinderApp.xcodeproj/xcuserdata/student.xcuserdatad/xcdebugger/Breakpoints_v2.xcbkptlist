@@ -495,7 +495,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "-getRestaurauntListWithUsername:password:latitude:longitude:"
+            landmarkName = "-getRestaurauntList"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1030,7 +1030,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodFinderApp/FoodDatabaseConnector.m"
