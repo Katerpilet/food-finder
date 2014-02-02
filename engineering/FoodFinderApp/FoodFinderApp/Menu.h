@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuItem.h"
 
 @interface Menu : NSObject
 @property (nonatomic, strong) NSMutableArray *menuItems;

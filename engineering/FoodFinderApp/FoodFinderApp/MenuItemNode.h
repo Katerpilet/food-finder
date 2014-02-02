@@ -12,5 +12,7 @@
 @property (nonatomic, strong) NSMutableArray* children;
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString* description;
-@property (nonatomic) int idFSItem;
+@property (nonatomic, strong) NSString* idFSItem;
+
+-(MenuItemNode*)initWithChildrenJson : (NSArray*) childrenJson name : (NSString*) name description : (NSString*) description itemId : (NSString*) idFSItem;
 @end

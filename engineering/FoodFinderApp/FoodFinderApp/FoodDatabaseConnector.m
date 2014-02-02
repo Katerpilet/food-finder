@@ -68,8 +68,17 @@
     return _restaurauntList;
 }
 
--(NSArray*) getMenu
+-(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 {
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    requestString = [requestString stringByAppendingString:MENU_SCRIPT];
+    
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@&idFSRestaurant=%@", username, password, @"4a5125dcf964a520acb01fe3"];
+    requestString = [requestString stringByAppendingString:parameters];
+    
+    NSString* responseString = [self getDataFrom:requestString];
+    
+    _menu = [[Menu alloc] initWithMenuItems:responseString];
     return _menuList;
 }
 
