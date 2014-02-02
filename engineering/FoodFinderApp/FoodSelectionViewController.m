@@ -42,7 +42,7 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     _appManager = [appdelegate appManager];
     
-    _baseMenuList = [_appManager getMenu];
+    _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestauraunt];
     _menuList = _baseMenuList;  // need to actually query for this...
     
     

@@ -9,17 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "PFoodDatabaseConnector.h"
 #import "Restaurant.h"
+#import "Menu.h"
 
-static const NSString* DATABASE_URL_ = @"http://ec2-54-235-249-205.compute-1.amazonaws.com/foodfinder/";
-static const NSString* REGISTRATION_SCRIPT = @"script.registerUser.php";
-static const NSString* VALIDATE_USER_SCRIPT = @"script.validateUser.php";
-static const NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
+static  NSString* DATABASE_URL_ = @"http://ec2-54-235-249-205.compute-1.amazonaws.com/foodfinder/";
+static  NSString* REGISTRATION_SCRIPT = @"script.registerUser.php";
+static  NSString* VALIDATE_USER_SCRIPT = @"script.validateUser.php";
+static  NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
+static  NSString* MENU_SCRIPT = @"script.getRestaurantMenu.php";
 
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
 -(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
 -(NSArray*) getRestaurauntList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
--(NSArray*) getMenu;
+-(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 - (NSString *) getDataFrom:(NSString *)url;
 -(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
 -(BOOL) validateWithUsernameAndPassword : (NSString*) username : (NSString*) password;

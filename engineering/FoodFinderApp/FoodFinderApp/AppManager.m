@@ -62,9 +62,9 @@
     return [_foodDatabaseConnector getRestaurauntListWithUsername:_userName password:_password latitude:_latitude longitude:_longitude];
 }
 
--(NSArray*) getMenu
+-(NSArray*) getMenuWithRestaurantId : (NSString*) idFSRestaurant;
 {
-    return [_foodDatabaseConnector getMenu];
+    return [_foodDatabaseConnector getMenuWithUsername:_userName password:_password restaurantID:idFSRestaurant];
 }
 
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
