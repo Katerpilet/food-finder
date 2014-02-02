@@ -57,39 +57,46 @@
     }
 }
 
--(NSArray*) getRestaurauntList: (NSString*) username: (NSString*) password: (double)latitude: (double)longitude
+-(NSMutableArray*) getRestaurauntList:(NSString*)username:(NSString*)password:(double)latitude: (double)longitude
 {
-    NSArray * restaurantList = [[NSArray alloc ] init];
+    NSMutableArray * restaurantList = [[NSMutableArray alloc ] init];
     
-    NSString * latString = [ [ NSNumber numberWithDouble : latitude ] stringValue ];
+    NSString * latString = [ [ NSNumber numberWithDouble: latitude ] stringValue ];
     NSString * longString = [ [ NSNumber numberWithDouble : longitude ] stringValue ];
     
-    NSDictionary *getParams =
+    NSDictionary * getParams =
     @{
       @"username" : username,
       @"password" : password,
       @"latitude" : latString,
       @"longitude" : longString
-    };
+      };
     
     NSString *recievedData = [self callPHPScript:@"getNearbyRestaurants" :getParams];
     
-    NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
-    NSError * e;
-    NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
-    
-    for( int i = 0; i < [jsonRestaurantList count]; ++i)
+    if ( ! [recievedData isEqualToString:@"-1"])
     {
-        NSDictionary curRestaurant = jsonRestaurantList[ i ];
         
+        NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
+        NSError * e;
+        NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
+        
+        for( int i = 0; i < [jsonRestaurantList count]; ++i)
+        {
+            NSDictionary * curRestaurantJSON = jsonRestaurantList[ i ];
+            
+            Restaurant * restaurant = [[Restaurant alloc] init];
+            [restaurant initWithJSON:curRestaurantJSON];
+            [restaurantList addObject:restaurant];
+        }
     }
     
-    return _restaurauntList;
+    return restaurantList;
 }
 
 -(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 {
-    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    NSString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
     requestString = [requestString stringByAppendingString:MENU_SCRIPT];
     
     NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@&idFSRestaurant=%@", username, password, @"4a5125dcf964a520acb01fe3"];

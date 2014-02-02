@@ -20,7 +20,7 @@ static  NSString* MENU_SCRIPT = @"script.getRestaurantMenu.php";
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
 -(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
--(NSArray*) getRestaurauntList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
+-(NSMutableArray*) getRestaurauntList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
 -(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
 - (NSString *) getDataFrom:(NSString *)url;
 -(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
