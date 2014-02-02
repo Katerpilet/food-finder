@@ -57,11 +57,11 @@
     
     for( int i = 0; i < [_sampleRestaurauntArray count]; ++i)
     {
-        Restauraunt* currentRestauraut = _sampleRestaurauntArray[ i ];
+        Restaurant* currentRestauraut = _sampleRestaurauntArray[ i ];
         _restaurauntNameToId[ currentRestauraut.name ] = currentRestauraut;
     }
     
-    Restauraunt* firstRestauraunt = _sampleRestaurauntArray[ 0 ];
+    Restaurant* firstRestauraunt = _sampleRestaurauntArray[ 0 ];
     // Use first piece of data to populate the table
     restaurauntName.text = firstRestauraunt.name;
     restaurauntLocation.text = firstRestauraunt.address;
@@ -86,7 +86,7 @@
     static NSString* CellIdentifier = @"RestaurauntCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    Restauraunt *restauraunt = _sampleRestaurauntArray[ indexPath.row + 1 ];
+    Restaurant *restauraunt = _sampleRestaurauntArray[ indexPath.row + 1 ];
     cell.textLabel.text = restauraunt.name;
     
     return cell;
@@ -103,7 +103,7 @@
     }
     else
     {
-        Restauraunt* currentRestauraunt = _sampleRestaurauntArray[ 0 ];
+        Restaurant* currentRestauraunt = _sampleRestaurauntArray[ 0 ];
         selectedRestauraunt = currentRestauraunt.name;
     }
     navigationController.currentRestauraunt = _restaurauntNameToId[ selectedRestauraunt ];
