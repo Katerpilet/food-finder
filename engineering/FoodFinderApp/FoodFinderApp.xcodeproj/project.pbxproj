@@ -25,7 +25,7 @@
 		3F997746189C49F600D77A0C /* FoodDatabaseConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997745189C49F600D77A0C /* FoodDatabaseConnector.m */; };
 		3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997748189C4F1400D77A0C /* FoursquareConnector.m */; };
 		3F99774B189C5A4900D77A0C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99774A189C5A4900D77A0C /* CoreLocation.framework */; };
-		3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99774E189C7BBC00D77A0C /* Restauraunt.m */; };
+		3F99774F189C7BBC00D77A0C /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99774E189C7BBC00D77A0C /* Restaurant.m */; };
 		3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F997795189C8CD600D77A0C /* MasterViewController.m */; };
 		3F9AA1BD189D85D200881D2D /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9AA1BC189D85D200881D2D /* RegistrationViewController.m */; };
 		3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */; };
@@ -70,8 +70,8 @@
 		3F997747189C4F1400D77A0C /* FoursquareConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareConnector.h; sourceTree = "<group>"; };
 		3F997748189C4F1400D77A0C /* FoursquareConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareConnector.m; sourceTree = "<group>"; };
 		3F99774A189C5A4900D77A0C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		3F99774D189C7BBC00D77A0C /* Restauraunt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restauraunt.h; sourceTree = "<group>"; };
-		3F99774E189C7BBC00D77A0C /* Restauraunt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restauraunt.m; sourceTree = "<group>"; };
+		3F99774D189C7BBC00D77A0C /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
+		3F99774E189C7BBC00D77A0C /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		3F997794189C8CD600D77A0C /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
 		3F997795189C8CD600D77A0C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
 		3F9AA1BB189D85D200881D2D /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
@@ -195,8 +195,8 @@
 		3F99774C189C7B9D00D77A0C /* FoodDatabaseComponents */ = {
 			isa = PBXGroup;
 			children = (
-				3F99774D189C7BBC00D77A0C /* Restauraunt.h */,
-				3F99774E189C7BBC00D77A0C /* Restauraunt.m */,
+				3F99774D189C7BBC00D77A0C /* Restaurant.h */,
+				3F99774E189C7BBC00D77A0C /* Restaurant.m */,
 			);
 			name = FoodDatabaseComponents;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */,
 				3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */,
 				3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */,
-				3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */,
+				3F99774F189C7BBC00D77A0C /* Restaurant.m in Sources */,
 				3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
 			);

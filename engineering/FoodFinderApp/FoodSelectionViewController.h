@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "FoodFinderApp/Restauraunt.h"
+#include "FoodFinderApp/Restaurant.h"
 #include "AppDelegate.h"
 
 @interface FoodSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
@@ -16,7 +16,7 @@
     UILabel IBOutlet *restaurauntAddress;
 
 }
-@property (nonatomic, strong) Restauraunt *currentRestauraunt;
+@property (nonatomic, strong) Restaurant *currentRestauraunt;
 
 
 @end
