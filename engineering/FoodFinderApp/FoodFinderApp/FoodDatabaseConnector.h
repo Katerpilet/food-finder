@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "PFoodDatabaseConnector.h"
 #import "Restauraunt.h"
+#import "Menu.h"
 
-static const NSString* DATABASE_URL_ = @"http://ec2-54-235-249-205.compute-1.amazonaws.com/foodfinder/";
-static const NSString* REGISTRATION_SCRIPT = @"script.registerUser.php";
-static const NSString* VALIDATE_USER_SCRIPT = @"script.validateUser.php";
-static const NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
+static  NSString* DATABASE_URL_ = @"http://ec2-54-235-249-205.compute-1.amazonaws.com/foodfinder/";
+static  NSString* REGISTRATION_SCRIPT = @"script.registerUser.php";
+static  NSString* VALIDATE_USER_SCRIPT = @"script.validateUser.php";
+static  NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
 
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
 -(void) createRestaurauntObjects : (NSArray*) restauraunts;

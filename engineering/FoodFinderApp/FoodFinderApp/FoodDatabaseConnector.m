@@ -12,6 +12,8 @@
 {
     NSMutableArray* _restaurauntList;
     NSMutableArray* _menuList;
+    
+    Menu* _menu;
 }
 
 -(id)init

@@ -30,6 +30,11 @@
 		3F9AA1BD189D85D200881D2D /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9AA1BC189D85D200881D2D /* RegistrationViewController.m */; };
 		3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */; };
 		3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */; };
+		3FF81163189EB83C006B1984 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81162189EB83C006B1984 /* Menu.m */; };
+		3FF81166189EBB47006B1984 /* MenuItemNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81165189EBB47006B1984 /* MenuItemNode.m */; };
+		3FF81169189EBBD5006B1984 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81168189EBBD5006B1984 /* MenuItem.m */; };
+		3FF8116C189EBD2D006B1984 /* UserMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8116B189EBD2D006B1984 /* UserMenuItem.m */; };
+		3FF8116F189EBD73006B1984 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8116E189EBD73006B1984 /* Order.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,16 @@
 		3FAA3F6B189C9C6100350828 /* FoodSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodSelectionViewController.m; path = ../FoodSelectionViewController.m; sourceTree = "<group>"; };
 		3FAA3F6D189C9DB600350828 /* RestaurauntSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurauntSelectionViewController.h; path = ../RestaurauntSelectionViewController.h; sourceTree = "<group>"; };
 		3FAA3F6E189C9DB600350828 /* RestaurauntSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurauntSelectionViewController.m; path = ../RestaurauntSelectionViewController.m; sourceTree = "<group>"; };
+		3FF81161189EB83C006B1984 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		3FF81162189EB83C006B1984 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		3FF81164189EBB47006B1984 /* MenuItemNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemNode.h; sourceTree = "<group>"; };
+		3FF81165189EBB47006B1984 /* MenuItemNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemNode.m; sourceTree = "<group>"; };
+		3FF81167189EBBD5006B1984 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		3FF81168189EBBD5006B1984 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		3FF8116A189EBD2D006B1984 /* UserMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserMenuItem.h; sourceTree = "<group>"; };
+		3FF8116B189EBD2D006B1984 /* UserMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserMenuItem.m; sourceTree = "<group>"; };
+		3FF8116D189EBD73006B1984 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		3FF8116E189EBD73006B1984 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +212,16 @@
 			children = (
 				3F99774D189C7BBC00D77A0C /* Restauraunt.h */,
 				3F99774E189C7BBC00D77A0C /* Restauraunt.m */,
+				3FF81161189EB83C006B1984 /* Menu.h */,
+				3FF81162189EB83C006B1984 /* Menu.m */,
+				3FF81164189EBB47006B1984 /* MenuItemNode.h */,
+				3FF81165189EBB47006B1984 /* MenuItemNode.m */,
+				3FF81167189EBBD5006B1984 /* MenuItem.h */,
+				3FF81168189EBBD5006B1984 /* MenuItem.m */,
+				3FF8116A189EBD2D006B1984 /* UserMenuItem.h */,
+				3FF8116B189EBD2D006B1984 /* UserMenuItem.m */,
+				3FF8116D189EBD73006B1984 /* Order.h */,
+				3FF8116E189EBD73006B1984 /* Order.m */,
 			);
 			name = FoodDatabaseComponents;
 			sourceTree = "<group>";
@@ -315,14 +340,19 @@
 			files = (
 				3F997746189C49F600D77A0C /* FoodDatabaseConnector.m in Sources */,
 				3F997719189C3FFF00D77A0C /* AppDelegate.m in Sources */,
+				3FF81163189EB83C006B1984 /* Menu.m in Sources */,
+				3FF8116C189EBD2D006B1984 /* UserMenuItem.m in Sources */,
+				3FF81169189EBBD5006B1984 /* MenuItem.m in Sources */,
 				3F997749189C4F1400D77A0C /* FoursquareConnector.m in Sources */,
 				3F9AA1BD189D85D200881D2D /* RegistrationViewController.m in Sources */,
 				3F997715189C3FFF00D77A0C /* main.m in Sources */,
+				3FF81166189EBB47006B1984 /* MenuItemNode.m in Sources */,
 				3F997796189C8CD600D77A0C /* MasterViewController.m in Sources */,
 				3F997722189C3FFF00D77A0C /* DetailViewController.m in Sources */,
 				3FAA3F6F189C9DB600350828 /* RestaurauntSelectionViewController.m in Sources */,
 				3F99774F189C7BBC00D77A0C /* Restauraunt.m in Sources */,
 				3FAA3F6C189C9C6100350828 /* FoodSelectionViewController.m in Sources */,
+				3FF8116F189EBD73006B1984 /* Order.m in Sources */,
 				3F997742189C447100D77A0C /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
