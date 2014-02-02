@@ -8,18 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-
 #include "FoodFinderApp/Restaurant.h"
 #include "AppDelegate.h"
 
-@interface FoodSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,UIAlertViewDelegate>
+@interface FoodSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
     UILabel IBOutlet *restaurauntName;
     UILabel IBOutlet *restaurauntAddress;
     SKView  IBOutlet *skView;
-
 }
 @property (nonatomic, strong) Restaurant *currentRestauraunt;
 
--(void)sendAchievementUnlocked;
 @end

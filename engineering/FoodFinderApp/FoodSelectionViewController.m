@@ -42,20 +42,9 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     _appManager = [appdelegate appManager];
     
-    _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestauraunt].menuItems[ 0 ];
+    _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestaurant].menuItems[ 0 ];
     _menuList = _baseMenuList;  // need to actually query for this...
-    skView.alpha = 0.5f;
-    skView.hidden = YES;
     
-    SKScene *scene = [SKScene sceneWithSize:skView.bounds.size];
-    scene.backgroundColor = [SKColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
-    [skView presentScene:scene];
-    
-    NSString* myParticlePath = [[NSBundle mainBundle] pathForResource:@"AchievementParticle" ofType:@"sks"];
-    SKEmitterNode* achievementParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:myParticlePath];
-    achievementParticle.position = CGPointMake(0, 100);
-    
-    [scene addChild:achievementParticle ];
     
 }
 
@@ -72,11 +61,9 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString* CellIdentifier = @"FoodCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-
     MenuItemNode *menuItem;
     if( _isFinalDepth )
     {
@@ -90,13 +77,13 @@
     cell.textLabel.text = menuItem.name;
     return cell;
 }
-
 -(void)sendAchievementUnlocked
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Achievement Unlocked!" message:@"You unlocked the Dear Diary... Achievement" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     skView.hidden = NO;
     [alert show];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
