@@ -14,6 +14,7 @@
     FoodDatabaseConnector* _foodDatabaseConnector;
     CLLocationManager* _locationManager;
     CLLocationDegrees _latitude, _longitude;
+    NSString *_userName, *_password;
 }
 /**************** LOCATION SETUP ****************/
 -(void) initLocationDelegate
@@ -38,11 +39,6 @@
     _latitude = location.coordinate.latitude;
     _longitude = location.coordinate.longitude;
     
-    NSArray* restaurauntArray = [_foursquareConnector getRestaurauntListWithLongitude:_longitude andLatitude:_latitude];
-    NSLog(@"Restauraunts: %@", restaurauntArray);
-    
-    NSDictionary* menus = [_foursquareConnector getMenuFromRestauraunt: restaurauntArray[ 1 ][@"id"] ];
-    
 }
 
 -(id) init
@@ -63,7 +59,7 @@
 
 -(NSArray*) getRestaurauntList
 {
-    return [_foodDatabaseConnector getRestaurauntList];
+    return [_foodDatabaseConnector getRestaurauntListWithUsername:_userName password:_password latitude:_latitude longitude:_longitude];
 }
 
 -(NSArray*) getMenu
@@ -73,11 +69,15 @@
 
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 {
+    _userName = username;
+    _password = password;
     return [_foodDatabaseConnector registerWithUsername:username andPassword:password];
 }
 
 -(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
 {
+    _userName = username;
+    _password = password;
     return [_foodDatabaseConnector validateWithUsername:username andPassword:password];
 }
 @end
