@@ -1,5 +1,5 @@
 //
-//  Restauraunt.h
+//  Restaurant.h
 //  FoodFinderApp
 //
 //  Created by Student on 1/31/14.

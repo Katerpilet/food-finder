@@ -19,6 +19,7 @@
     SKView  IBOutlet *skView;
 
 }
+
 @property (nonatomic, strong) Restaurant *currentRestauraunt;
 
 -(void)sendAchievementUnlocked;
