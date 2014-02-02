@@ -65,9 +65,6 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="4Fk-z9-6q4" kind="push" id="GaP-3M-vP3"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brw-fk-HcN">
                                 <rect key="frame" x="94" y="518" width="133" height="30"/>
@@ -99,6 +96,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="aQQ-Ao-r8R"/>
+                    <connections>
+                        <outlet property="loginButton" destination="2jf-Fd-W5c" id="RGF-Kd-oTf"/>
+                        <outlet property="loginField" destination="a2a-M6-YE2" id="hMw-x5-SCY"/>
+                        <outlet property="passwordField" destination="ZK1-oE-zce" id="vYI-lJ-JWn"/>
+                        <segue destination="4Fk-z9-6q4" kind="push" identifier="loginToRestaurauntSegue" id="CVG-AS-aso"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sv3-qY-CRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,6 +402,12 @@ Here's a few other nearby places:</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register an Account" id="ebv-xJ-1dz"/>
+                    <connections>
+                        <outlet property="nameField" destination="ZrH-13-Fnb" id="v6N-k0-fc2"/>
+                        <outlet property="passwordField" destination="H2a-SE-klZ" id="WhI-6U-mlm"/>
+                        <outlet property="registerButton" destination="ptf-lA-QH7" id="fWL-pP-ZQ0"/>
+                        <segue destination="4Fk-z9-6q4" kind="push" identifier="segue1" id="1fS-d1-Sxg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vK-l2-Vpr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -411,6 +420,7 @@ Here's a few other nearby places:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="CVG-AS-aso"/>
         <segue reference="cub-lY-dWg"/>
     </inferredMetricsTieBreakers>
 </document>

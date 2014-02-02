@@ -10,8 +10,8 @@
 
 @protocol FoodDatabaseConnector
 @required
--(void)validateUser:(NSString*) username : (NSString*) password;
--(void)registerUser:( NSString*) username : (NSString*) password;
+-(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password;
+-(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 -(void)setRestaurauntRating:(int) idFSRestauraunt : (NSNumber*) rating;
 -(void)setRestaurauntComments:(int) idFSRestauraunt : (NSString*) comment;
 -(void)orderedMenuItem:(int) idFSMenuItem;

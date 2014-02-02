@@ -13,7 +13,9 @@
 @end
 
 @implementation RegistrationViewController
-
+{
+    AppManager* _appManager;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,7 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+    _appManager = [appdelegate appManager];
+    
+	[registerButton addTarget:self action:@selector(registerAccount:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,6 +101,16 @@
                                                   object:nil];
 }
 
-
+-(void)registerAccount : (id)sender
+{
+    NSString* nameString = nameField.text;
+    NSString* passwordString = passwordField.text;
+    
+    BOOL registerSuceeded = [_appManager registerWithUsername:nameString andPassword:passwordString];
+    if( registerSuceeded )
+    {
+        [self performSegueWithIdentifier:@"segue1" sender:sender];
+    }
+}
 
 @end

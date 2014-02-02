@@ -68,11 +68,27 @@
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 {
     NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
-    [requestString stringByAppendingString:REGISTRATION_SCRIPT];
+    requestString = [requestString stringByAppendingString:REGISTRATION_SCRIPT];
     
-    NSString* receivedData = [self getDataFrom:requestString];
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@", username, password];
+    requestString = [requestString stringByAppendingString:parameters];
+    int receivedData = [[self getDataFrom:requestString] intValue];
     
-    return receivedData != nil;
+    
+    return receivedData > 0;
+}
+
+-(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
+{
+    NSMutableString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
+    requestString = [requestString stringByAppendingString:VALIDATE_USER_SCRIPT];
+    
+    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@", username, password];
+    requestString = [requestString stringByAppendingString:parameters];
+    int receivedData = [[self getDataFrom:requestString] intValue];
+    
+    
+    return receivedData > 0;
 }
 
 //http://stackoverflow.com/questions/9404104/simple-objective-c-get-request
@@ -94,4 +110,6 @@
     
     return [[NSString alloc] initWithData:oResponseData encoding:NSUTF8StringEncoding];
 }
+
+
 @end

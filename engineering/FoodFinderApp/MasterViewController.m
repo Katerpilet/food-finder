@@ -14,6 +14,9 @@
 @end
 
 @implementation MasterViewController
+{
+    AppManager* _appManager;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +32,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
+    _appManager = [appdelegate appManager];
+    
+	[loginButton addTarget:self action:@selector(loginAccount:) forControlEvents:UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +120,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:UIKeyboardWillHideNotification
                                                   object:nil];
+}
+
+-(void)loginAccount : (id)sender
+{
+    NSString* nameString = loginField.text;
+    NSString* passwordString = passwordField.text;
+    
+    BOOL loginSuceeded = [_appManager validateWithUsername:nameString andPassword:passwordString];
+    if( loginSuceeded )
+    {
+        [self performSegueWithIdentifier:@"loginToRestaurauntSegue" sender:sender];
+    }
 }
 
 

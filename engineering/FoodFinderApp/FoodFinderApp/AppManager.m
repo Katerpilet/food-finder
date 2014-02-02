@@ -70,4 +70,14 @@
 {
     return [_foodDatabaseConnector getMenu];
 }
+
+-(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
+{
+    return [_foodDatabaseConnector registerWithUsername:username andPassword:password];
+}
+
+-(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
+{
+    return [_foodDatabaseConnector validateWithUsername:username andPassword:password];
+}
 @end
