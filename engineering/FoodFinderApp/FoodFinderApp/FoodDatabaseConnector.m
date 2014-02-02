@@ -40,31 +40,41 @@
     _menuList[ 2 ][ 1 ] = [NSArray arrayWithObjects:@"Steak", @"Meatballs", @"Pasghetii", nil];
     return self;
 }
--(void) createRestaurauntObjects : (NSArray*) restauraunts
+
+-(BOOL) registerUser : (NSString*) username : (NSString*) password;
 {
-    _restaurauntList = [[NSMutableArray alloc] initWithCapacity:[restauraunts count]];
-    NSDictionary* currentRestauraunt;
-    for( int i = 0; i < [restauraunts count]; ++i )
-    {
-        currentRestauraunt = restauraunts[ i ];
-        NSString* name = currentRestauraunt[@"name"];
-        NSString* description = currentRestauraunt[@"description"];
-        NSString* address = currentRestauraunt[@"location"];
-        NSString* idFSRestauraunt = currentRestauraunt[@"id"];
-        int globalRating = [ currentRestauraunt[@"rating"] intValue ];
-        int priceRating = [ currentRestauraunt[@"price"][@"tier"] intValue];
-        //_restaurauntList[ i ] = [[Restauraunt alloc] initWithName:<#(NSString *)#> description:<#(NSString *)#> address:<#(NSString *)#> idFSRestaraunt:(int) globalRating:<#(int)#> priceRating:<#(int)#>]
-    }
+    NSDictionary *getParams =
+    @{
+      @"username" : username,
+      @"password" : password
+      };
+    
+    NSString *recievedData = [self callPHPScript:@"registerUser" :getParams];
+    
+    return [recievedData isEqualToString:@"1"];
 }
 
--(NSArray*) getRestaurauntList: (NSString*) username: (NSString*) password: (double)latitude: (double)longitude
+-(BOOL)validateUser:(NSString*) username : (NSString*) password
 {
-    NSArray * restaurantList = [[NSArray alloc ] init];
+    NSDictionary *getParams =
+    @{
+      @"username" : username,
+      @"password" : password
+      };
     
-    NSString * latString = [ [ NSNumber numberWithDouble : latitude ] stringValue ];
+    NSString *recievedData = [self callPHPScript:@"validateUser" :getParams];
+    
+    return [recievedData isEqualToString:@"1"];
+}
+
+-(NSMutableArray*) getRestaurauntList:(NSString*)username:(NSString*)password:(double)latitude: (double)longitude
+{
+    NSMutableArray * restaurantList = [[NSMutableArray alloc ] init];
+    
+    NSString * latString = [ [ NSNumber numberWithDouble: latitude ] stringValue ];
     NSString * longString = [ [ NSNumber numberWithDouble : longitude ] stringValue ];
     
-    NSDictionary *getParams =
+    NSDictionary * getParams =
     @{
       @"username" : username,
       @"password" : password,
@@ -74,17 +84,24 @@
     
     NSString *recievedData = [self callPHPScript:@"getNearbyRestaurants" :getParams];
     
-    NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
-    NSError * e;
-    NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
-    
-    for( int i = 0; i < [jsonRestaurantList count]; ++i)
+    if ( ! [recievedData isEqualToString:@"-1"])
     {
-        NSDictionary curRestaurant = jsonRestaurantList[ i ];
-        
+    
+        NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
+        NSError * e;
+        NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
+    
+        for( int i = 0; i < [jsonRestaurantList count]; ++i)
+        {
+            NSDictionary * curRestaurantJSON = jsonRestaurantList[ i ];
+            
+            Restaurant * restaurant = [[Restaurant alloc] init];
+            [restaurant initWithJSON:curRestaurantJSON];
+            [restaurantList addObject:restaurant];
+        }
     }
     
-    return _restaurauntList;
+    return restaurantList;
 }
 
 -(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
@@ -99,32 +116,6 @@
     
     _menu = [[Menu alloc] initWithMenuItems:responseString];
     return _menuList;
-}
-
--(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
-{
-    NSDictionary *getParams =
-    @{
-      @"username" : username,
-      @"password" : password
-    };
-    
-    NSString *recievedData = [self callPHPScript:@"registerUser" :getParams];
-    
-    return [recievedData isEqualToString:@"1"];
-}
-
--(BOOL)validateWithUsernameAndPassword:(NSString*) username : (NSString*) password
-{
-    NSDictionary *getParams =
-    @{
-      @"username" : username,
-      @"password" : password
-    };
-    
-    NSString *recievedData = [self callPHPScript:@"validateUser" :getParams];
-    
-    return [recievedData isEqualToString:@"1"];
 }
 
 - (NSString *) callPHPScript : (NSString *)scriptName : (NSDictionary *) getParams

@@ -18,12 +18,11 @@ static  NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
 static  NSString* MENU_SCRIPT = @"script.getRestaurantMenu.php";
 
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
--(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
--(NSArray*) getRestaurauntList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
+-(BOOL) registerUser : (NSString*) username : (NSString*) password;
+-(BOOL)validateUser:(NSString*) username : (NSString*) password;
+-(NSMutableArray*) getRestaurauntList:(NSString*)username:(NSString*)password:(double)latitude: (double)longitude;
 -(NSArray*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
-- (NSString *) getDataFrom:(NSString *)url;
--(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
--(BOOL) validateWithUsernameAndPassword : (NSString*) username : (NSString*) password;
--(NSString *) callPHPScript : (NSString*) scriptName : (NSDictionary*) getParams;
+-(NSString *) callPHPScript : (NSString *)scriptName : (NSDictionary *) getParams;
+-(NSString *) getDataFrom:(NSString *)url;
 @end
