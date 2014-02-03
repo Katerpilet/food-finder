@@ -53,6 +53,8 @@
     {
         _selectedStar = [UIImage imageNamed:@"FilledStarIcon.png"];
     }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

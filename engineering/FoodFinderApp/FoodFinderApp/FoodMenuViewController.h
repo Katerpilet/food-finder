@@ -20,6 +20,8 @@
     UIButton IBOutlet *_button2;
     UIButton IBOutlet *_button3;
     UIButton IBOutlet *_button4;
+    
+    UIImageView IBOutlet *_foodImage;
 }
 
 @property MenuItem *selectedFood;

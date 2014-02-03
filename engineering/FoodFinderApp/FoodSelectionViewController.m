@@ -45,6 +45,11 @@
     _baseMenuList = [_appManager getMenuWithRestaurantId:_currentRestauraunt.idFSRestaurant].menuItems[ 0 ];
     _menuList = _baseMenuList;  // need to actually query for this...
     
+    
+    NSData *urlData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentRestauraunt.photoURL]];
+    UIImage *urlImage = [[UIImage alloc] initWithData:urlData];
+    [restarauntView setImage:urlImage];
+    
     SKScene* scene = [SKScene sceneWithSize:skView.bounds.size];
     [skView presentScene:scene];
     

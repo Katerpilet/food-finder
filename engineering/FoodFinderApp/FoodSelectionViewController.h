@@ -17,6 +17,7 @@
     UILabel IBOutlet *restaurauntName;
     UILabel IBOutlet *restaurauntAddress;
     SKView  IBOutlet *skView;
+    UIImageView IBOutlet *restarauntView;
 }
 @property (nonatomic, strong) Restaurant *currentRestauraunt;
 
