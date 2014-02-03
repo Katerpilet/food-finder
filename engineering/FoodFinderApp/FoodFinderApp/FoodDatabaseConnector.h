@@ -18,15 +18,18 @@ static  NSString* NEARBY_RESTAURANT_SCRIPT = @"script.getNearbyRestaurants.php";
 static  NSString* MENU_SCRIPT = @"script.getRestaurantMenu.php";
 
 @interface FoodDatabaseConnector : NSObject<FoodDatabaseConnector>
--(void) createRestaurauntObjects : (NSArray*) restauraunts;
 -(void) createMenuObject : (NSDictionary*) menu;
-
--(Menu*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
-
--(NSMutableArray*) getRestaurauntList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
-
-- (NSString *) getDataFrom:(NSString *)url;
--(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
--(BOOL) validateWithUsernameAndPassword : (NSString*) username : (NSString*) password;
+-(BOOL) registerUser : (NSString*) username : (NSString*) password;
+-(BOOL) validateUser : (NSString*) username : (NSString*) password;
+-(NSMutableArray*) getRestaurantList : (NSString*) username: (NSString*) password: (double)latitude: (double)longitude;
+-(NSMutableArray*) searchForRestaurants : (NSString*) username : (NSString*) password : (double) latitude : (double) longitude : (NSString*) searchTerm;
+-(Menu*) getRestaurantMenu : (NSString*) username : (NSString*) password : (NSString*) idFSRestaurant;
+-(void) setRestaurantRating : (NSString *) username : (NSString *) password : (NSString*) idFSRestaurant : (int) rating;
+-(void) setRestaurantComments : (NSString *) username : (NSString *) password : (NSString*) idFSRestaurant : (NSString*) comments;
+-(void) orderedMenuItem : (NSString *) username : (NSString *) password : (NSString *) idFSRestaurant : (NSString *) idFSMenuItem : (int) rating;
+-(void) setMenuItemComments : (NSString *) username : (NSString *) password : (NSString *) idFSRestaurant : (NSString *) idFSMenuItem : (NSString *) comments;
+-(void) awardAchievement : (NSString *) username : (NSString *)  password : (int) idAchievement;
+-(NSMutableArray *) getAchievements : (NSString *) username : (NSString *) password;
 -(NSString *) callPHPScript : (NSString*) scriptName : (NSDictionary*) getParams;
+- (NSString *) getDataFrom:(NSString *)url;
 @end

@@ -11,6 +11,15 @@
 		3F6A75EF189EF93300D171C8 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A75EC189EF93300D171C8 /* Order.m */; };
 		3F6A75F0189EF93300D171C8 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F6A75ED189EF93300D171C8 /* spark.png */; };
 		3F6A75F3189EFBF000D171C8 /* FoodMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6A75F2189EFBF000D171C8 /* FoodMenuViewController.m */; };
+		3F8AA8CC189F1BCD00B9AB89 /* App Pages Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8CB189F1BCD00B9AB89 /* App Pages Background.png */; };
+		3F8AA8CE189F1E9100B9AB89 /* Login Screen Image Hard Corners.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8CD189F1E9100B9AB89 /* Login Screen Image Hard Corners.png */; };
+		3F8AA8D0189F1F8900B9AB89 /* 1024 Diner's Diary Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8CF189F1F8900B9AB89 /* 1024 Diner's Diary Logo.png */; };
+		3F8AA8D2189F1F8E00B9AB89 /* 120 Diner's Diary Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8D1189F1F8E00B9AB89 /* 120 Diner's Diary Logo.png */; };
+		3F8AA8D4189F1FC000B9AB89 /* Launch Image.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8D3189F1FC000B9AB89 /* Launch Image.png */; };
+		3F8AA8D6189F20AD00B9AB89 /* FilledStarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8D5189F20AD00B9AB89 /* FilledStarIcon.png */; };
+		3F8AA8D8189F20CA00B9AB89 /* EmptyStarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8D7189F20CA00B9AB89 /* EmptyStarIcon.png */; };
+		3F8AA8DA189F216400B9AB89 /* Loading Screen Image 640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8D9189F216400B9AB89 /* Loading Screen Image 640x960.png */; };
+		3F8AA8DC189F219300B9AB89 /* Loading Screen Image Hard Corners.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F8AA8DB189F219300B9AB89 /* Loading Screen Image Hard Corners.png */; };
 		3F997709189C3FFF00D77A0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F997708189C3FFF00D77A0C /* Foundation.framework */; };
 		3F99770B189C3FFF00D77A0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99770A189C3FFF00D77A0C /* CoreGraphics.framework */; };
 		3F99770D189C3FFF00D77A0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F99770C189C3FFF00D77A0C /* UIKit.framework */; };
@@ -57,6 +66,15 @@
 		3F6A75ED189EF93300D171C8 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		3F6A75F1189EFBF000D171C8 /* FoodMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodMenuViewController.h; sourceTree = "<group>"; };
 		3F6A75F2189EFBF000D171C8 /* FoodMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodMenuViewController.m; sourceTree = "<group>"; };
+		3F8AA8CB189F1BCD00B9AB89 /* App Pages Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "App Pages Background.png"; path = "../../../Downloads/App Pages Background.png"; sourceTree = "<group>"; };
+		3F8AA8CD189F1E9100B9AB89 /* Login Screen Image Hard Corners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Login Screen Image Hard Corners.png"; path = "../../../Downloads/Login Screen Image Hard Corners.png"; sourceTree = "<group>"; };
+		3F8AA8CF189F1F8900B9AB89 /* 1024 Diner's Diary Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "1024 Diner's Diary Logo.png"; path = "../../../Downloads/1024 Diner's Diary Logo.png"; sourceTree = "<group>"; };
+		3F8AA8D1189F1F8E00B9AB89 /* 120 Diner's Diary Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "120 Diner's Diary Logo.png"; path = "../../../Downloads/120 Diner's Diary Logo.png"; sourceTree = "<group>"; };
+		3F8AA8D3189F1FC000B9AB89 /* Launch Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch Image.png"; path = "../../../Downloads/Launch Image.png"; sourceTree = "<group>"; };
+		3F8AA8D5189F20AD00B9AB89 /* FilledStarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FilledStarIcon.png; path = ../../../Downloads/FilledStarIcon.png; sourceTree = "<group>"; };
+		3F8AA8D7189F20CA00B9AB89 /* EmptyStarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EmptyStarIcon.png; path = ../../../Downloads/EmptyStarIcon.png; sourceTree = "<group>"; };
+		3F8AA8D9189F216400B9AB89 /* Loading Screen Image 640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Loading Screen Image 640x960.png"; path = "../../../Downloads/Loading Screen Image 640x960.png"; sourceTree = "<group>"; };
+		3F8AA8DB189F219300B9AB89 /* Loading Screen Image Hard Corners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Loading Screen Image Hard Corners.png"; path = "../../../Downloads/Loading Screen Image Hard Corners.png"; sourceTree = "<group>"; };
 		3F997705189C3FFF00D77A0C /* FoodFinderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFinderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F997708189C3FFF00D77A0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F99770A189C3FFF00D77A0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,9 +148,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F8AA8C8189F1A6400B9AB89 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3F8AA8DB189F219300B9AB89 /* Loading Screen Image Hard Corners.png */,
+				3F8AA8D9189F216400B9AB89 /* Loading Screen Image 640x960.png */,
+				3F8AA8CD189F1E9100B9AB89 /* Login Screen Image Hard Corners.png */,
+				3F8AA8D1189F1F8E00B9AB89 /* 120 Diner's Diary Logo.png */,
+				3F8AA8D3189F1FC000B9AB89 /* Launch Image.png */,
+				3F8AA8CF189F1F8900B9AB89 /* 1024 Diner's Diary Logo.png */,
+				3F8AA8CB189F1BCD00B9AB89 /* App Pages Background.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		3F9976FC189C3FFF00D77A0C = {
 			isa = PBXGroup;
 			children = (
+				3F8AA8C8189F1A6400B9AB89 /* Images */,
+				3F8AA8D7189F20CA00B9AB89 /* EmptyStarIcon.png */,
+				3F8AA8D5189F20AD00B9AB89 /* FilledStarIcon.png */,
 				3F99770E189C3FFF00D77A0C /* FoodFinderApp */,
 				3F997730189C3FFF00D77A0C /* FoodFinderAppTests */,
 				3F997707189C3FFF00D77A0C /* Frameworks */,
@@ -332,7 +367,16 @@
 				3F997724189C3FFF00D77A0C /* Images.xcassets in Resources */,
 				3F997713189C3FFF00D77A0C /* InfoPlist.strings in Resources */,
 				3F99771C189C3FFF00D77A0C /* Main.storyboard in Resources */,
+				3F8AA8DA189F216400B9AB89 /* Loading Screen Image 640x960.png in Resources */,
+				3F8AA8D0189F1F8900B9AB89 /* 1024 Diner's Diary Logo.png in Resources */,
+				3F8AA8D6189F20AD00B9AB89 /* FilledStarIcon.png in Resources */,
 				3F6A75EE189EF93300D171C8 /* AchievementParticle.sks in Resources */,
+				3F8AA8DC189F219300B9AB89 /* Loading Screen Image Hard Corners.png in Resources */,
+				3F8AA8D8189F20CA00B9AB89 /* EmptyStarIcon.png in Resources */,
+				3F8AA8CE189F1E9100B9AB89 /* Login Screen Image Hard Corners.png in Resources */,
+				3F8AA8D4189F1FC000B9AB89 /* Launch Image.png in Resources */,
+				3F8AA8CC189F1BCD00B9AB89 /* App Pages Background.png in Resources */,
+				3F8AA8D2189F1F8E00B9AB89 /* 120 Diner's Diary Logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,10 +538,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodFinderApp/FoodFinderApp-Prefix.pch";
 				INFOPLIST_FILE = "FoodFinderApp/FoodFinderApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -507,10 +554,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FoodFinderApp/FoodFinderApp-Prefix.pch";
 				INFOPLIST_FILE = "FoodFinderApp/FoodFinderApp-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

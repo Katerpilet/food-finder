@@ -16,10 +16,20 @@
 
 static const CLLocationDistance DISTANCE_FILTER_CHANGE = 100.0;
 @interface AppManager : NSObject<FoodDatabaseConnector, PAppManager>
+
 -(id) init;
 -(void) getStuff;
 -(NSArray*) getRestaurauntList;
+-(NSArray*) searchForRestaurants : (NSString*) searchTerm;
 -(Menu*) getMenuWithRestaurantId : (NSString*) idFSRestaurant;
+-(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
+-(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password;
+-(NSArray*) getRestaurantList;
+-(void) setRestaurantRating : (NSString *) idFSRestaurant : (int) rating;
+-(void) setRestaurantComments: (NSString*) idFSRestaurant  : (NSString *) comments;
+-(void) orderedMenuItem: (NSString *) idFSRestaurant : (NSString *) idFSMenuItem : (int) rating;
+-(void) awardAchievement: (int) idAchievement;
+-(NSMutableArray *) getAchievements;
 
 
 @end

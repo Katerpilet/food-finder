@@ -57,27 +57,57 @@
     NSLog(@"Worked");
 }
 
+-(NSArray*) searchForRestaurants:(NSString *)searchTerm
+{
+    return [_foodDatabaseConnector searchForRestaurants:_userName :_password :_latitude :_longitude :searchTerm ];
+}
+
 -(NSArray*) getRestaurauntList
 {
-    return [_foodDatabaseConnector getRestaurauntList:_userName :_password :_latitude :_longitude];
+    return [_foodDatabaseConnector getRestaurantList:_userName :_password :_latitude :_longitude];
 }
 
 -(Menu*) getMenuWithRestaurantId : (NSString*) idFSRestaurant;
 {
-    return [_foodDatabaseConnector getMenuWithUsername:_userName password:_password restaurantID:idFSRestaurant];
+    return [_foodDatabaseConnector getRestaurantMenu: _userName: _password: idFSRestaurant];
 }
 
 -(BOOL) registerWithUsername : (NSString*) username andPassword : (NSString*) password;
 {
     _userName = username;
     _password = password;
-    return [_foodDatabaseConnector registerWithUsernameAndPassword:username:password];
+    return [_foodDatabaseConnector registerUser:username:password];
 }
 
 -(BOOL)validateWithUsername:(NSString*) username andPassword: (NSString*) password
 {
     _userName = username;
     _password = password;
-    return [_foodDatabaseConnector validateWithUsernameAndPassword:username:password];
+    return [_foodDatabaseConnector validateUser:username:password];
+}
+
+-(void) setRestaurantRating : (NSString *) idFSRestaurant : (int) rating
+{
+    [_foodDatabaseConnector setRestaurantRating: _userName : _password : idFSRestaurant : rating ];
+}
+
+-(void) setRestaurantComments: (NSString*) idFSRestaurant : (NSString *) comments
+{
+    [_foodDatabaseConnector setRestaurantComments: _userName : _password : idFSRestaurant : comments];
+}
+
+-(void) orderedMenuItem: (NSString *) idFSRestaurant : (NSString *) idFSMenuItem : (int) rating
+{
+    [_foodDatabaseConnector orderedMenuItem: _userName : _password : idFSRestaurant : idFSMenuItem : rating ];
+}
+
+-(void) awardAchievement: (int) idAchievement
+{
+    [_foodDatabaseConnector awardAchievement: _userName : _password : idAchievement ];
+}
+
+-(NSMutableArray *) getAchievements
+{
+    return [_foodDatabaseConnector getAchievements: _userName : _password];
 }
 @end

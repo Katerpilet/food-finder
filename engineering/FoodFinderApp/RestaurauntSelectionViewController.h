@@ -10,11 +10,16 @@
 #import "AppDelegate.h"
 #import "FoodSelectionViewController.h"
 
-@interface RestaurauntSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+static const int OFFSET_FOR_KEYBOARD = 250.0f;
+@interface RestaurauntSelectionViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 {
     UILabel IBOutlet  *restaurauntName;
     UILabel IBOutlet  *restaurauntPrice;
     UILabel IBOutlet  *restaurauntLocation;
+    UITableView IBOutlet *restaurantTableView;
+    UIImageView IBOutlet *restaurantImage;
 }
 @property id delegate;
+-(void)initializeRestaurantList : (NSArray*) restaurantList;
+-(void)setMovedViewUp:(BOOL)moveUp;
 @end

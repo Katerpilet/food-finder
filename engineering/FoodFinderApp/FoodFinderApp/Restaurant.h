@@ -16,6 +16,7 @@
 @property(nonatomic,readonly) int idUserRestaurant;
 @property(nonatomic,readonly) int globalRating;
 @property(nonatomic,readonly) int priceRating;
+@property(nonatomic,readonly) NSString * photoURL;
 @property(nonatomic,readonly) int userRating;
 @property(nonatomic,readonly) NSString* userComments;
 

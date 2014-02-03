@@ -9,55 +9,34 @@
 #import "FoodDatabaseConnector.h"
 
 @implementation FoodDatabaseConnector
+
+-(BOOL) registerUser : (NSString*) username : (NSString*) password;
 {
-    NSMutableArray* _restaurauntList;
-    NSMutableArray* _menuList;
+    NSDictionary *getParams =
+    @{
+      @"username" : username,
+      @"password" : password
+      };
     
-    Menu* _menu;
+    NSString *recievedData = [self callPHPScript:@"registerUser" :getParams];
+    
+    return [recievedData isEqualToString:@"1"];
 }
 
--(id)init
+-(BOOL)validateUser:(NSString*) username : (NSString*) password
 {
-    self = [super init];
-    _restaurauntList = [[NSMutableArray alloc] initWithCapacity:4];
-    _restaurauntList[ 0 ] = [[Restaurant alloc] initWithName:@"Blakes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42b" globalRating:4 priceRating:1];
-    _restaurauntList[ 1 ] = [[Restaurant alloc] initWithName:@"Dustins" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42c" globalRating:3 priceRating:2];
-    _restaurauntList[ 2 ] = [[Restaurant alloc] initWithName:@"Joes" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42e" globalRating:2 priceRating:3];
-    _restaurauntList[ 3 ] = [[Restaurant alloc] initWithName:@"Matts" description:@"My Place" address:@"Kimball Dr" idFSRestaraunt:@"4ad42f" globalRating:1 priceRating:4];
+    NSDictionary *getParams =
+    @{
+      @"username" : username,
+      @"password" : password
+      };
     
-    _menuList = [[NSMutableArray alloc] initWithCapacity:3];
-    _menuList[ 0 ] = [[NSMutableArray alloc] initWithCapacity:2];
-    _menuList[ 1 ] = [[NSMutableArray alloc] initWithCapacity:2];
-    _menuList[ 2 ] = [[NSMutableArray alloc] initWithCapacity:2];
+    NSString *recievedData = [self callPHPScript:@"validateUser" :getParams];
     
-    _menuList[ 0 ][ 0 ] = @"Breakfast";
-    _menuList[ 0 ][ 1 ] = [NSArray arrayWithObjects:@"Tortilla Soup", @"Avacado Chilli", nil];
-    
-    _menuList[ 1 ][ 0 ] = @"Lunch";
-    _menuList[ 1 ][ 1 ] = [NSArray arrayWithObjects:@"Bacon Burger", @"Turnip Juice", @"Ribs", nil];
-    
-    _menuList[ 2 ][ 0 ] = @"Dinner";
-    _menuList[ 2 ][ 1 ] = [NSArray arrayWithObjects:@"Steak", @"Meatballs", @"Pasghetii", nil];
-    return self;
-}
--(void) createRestaurauntObjects : (NSArray*) restauraunts
-{
-    _restaurauntList = [[NSMutableArray alloc] initWithCapacity:[restauraunts count]];
-    NSDictionary* currentRestauraunt;
-    for( int i = 0; i < [restauraunts count]; ++i )
-    {
-        currentRestauraunt = restauraunts[ i ];
-        NSString* name = currentRestauraunt[@"name"];
-        NSString* description = currentRestauraunt[@"description"];
-        NSString* address = currentRestauraunt[@"location"];
-        NSString* idFSRestauraunt = currentRestauraunt[@"id"];
-        int globalRating = [ currentRestauraunt[@"rating"] intValue ];
-        int priceRating = [ currentRestauraunt[@"price"][@"tier"] intValue];
-        //_restaurauntList[ i ] = [[Restauraunt alloc] initWithName:<#(NSString *)#> description:<#(NSString *)#> address:<#(NSString *)#> idFSRestaraunt:(int) globalRating:<#(int)#> priceRating:<#(int)#>]
-    }
+    return [recievedData isEqualToString:@"1"];
 }
 
--(NSMutableArray*) getRestaurauntList:(NSString*)username:(NSString*)password:(double)latitude: (double)longitude
+-(NSMutableArray*) getRestaurantList:(NSString*)username:(NSString*)password:(double)latitude: (double)longitude
 {
     NSMutableArray * restaurantList = [[NSMutableArray alloc ] init];
     
@@ -86,7 +65,6 @@
             NSDictionary * curRestaurantJSON = jsonRestaurantList[ i ];
             
             Restaurant * restaurant = [[Restaurant alloc] init];
-            
             [restaurant initWithJSON:curRestaurantJSON];
             [restaurantList addObject:restaurant];
         }
@@ -95,45 +73,99 @@
     return restaurantList;
 }
 
--(Menu*) getMenuWithUsername : (NSString*) username password : (NSString*) password restaurantID : (NSString*) idFSRestaurant;
+-(NSMutableArray*) searchForRestaurants : (NSString*) username : (NSString*) password : (double) latitude : (double) longitude : (NSString*) searchTerm;
 {
-    NSString *requestString = [NSMutableString stringWithString:DATABASE_URL_];
-    requestString = [requestString stringByAppendingString:MENU_SCRIPT];
+    NSMutableArray * restaurantList = [[NSMutableArray alloc ] init];
     
-    NSString *parameters = [NSString stringWithFormat:@"?username=%@&password=%@&idFSRestaurant=%@", username, password, idFSRestaurant];
-    requestString = [requestString stringByAppendingString:parameters];
+    NSString * latString = [ [ NSNumber numberWithDouble: latitude ] stringValue ];
+    NSString * longString = [ [ NSNumber numberWithDouble : longitude ] stringValue ];
+    NSString * location = [NSString stringWithFormat:@"%@,%@", latString, longString];
     
-    NSString* responseString = [self getDataFrom:requestString];
-    
-    _menu = [[Menu alloc] initWithMenuItems:responseString];
-    return _menu;
-}
-
--(BOOL) registerWithUsernameAndPassword : (NSString*) username : (NSString*) password;
-{
-    NSDictionary *getParams =
+    NSDictionary * getParams =
     @{
       @"username" : username,
-      @"password" : password
-    };
+      @"password" : password,
+      @"location" : location,
+      @"searchTerm" : searchTerm
+      };
     
-    NSString *recievedData = [self callPHPScript:@"registerUser" :getParams];
+    NSString *recievedData = [self callPHPScript:@"searchForRestaurant" :getParams];
     
-    return [recievedData isEqualToString:@"1"];
+    if ( ! [recievedData isEqualToString:@"-1"])
+    {
+        
+        NSData * jsonData = [recievedData dataUsingEncoding:NSUTF8StringEncoding];
+        NSError * e;
+        NSArray * jsonRestaurantList = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&e];
+        
+        for( int i = 0; i < [jsonRestaurantList count]; ++i)
+        {
+            NSDictionary * curRestaurantJSON = jsonRestaurantList[ i ];
+            
+            Restaurant * restaurant = [[Restaurant alloc] init];
+            [restaurant initWithJSON:curRestaurantJSON];
+            [restaurantList addObject:restaurant];
+        }
+    }
+    
+    return restaurantList;
 }
 
--(BOOL)validateWithUsernameAndPassword:(NSString*) username : (NSString*) password
+-(Menu*) getRestaurantMenu : (NSString*) username : (NSString*) password : (NSString*) idFSRestaurant
 {
-    NSDictionary *getParams =
+    NSDictionary * getParams =
     @{
       @"username" : username,
-      @"password" : password
-    };
+      @"password" : password,
+      @"idFSRestaurant" : idFSRestaurant
+      };
     
-    NSString *recievedData = [self callPHPScript:@"validateUser" :getParams];
+    NSString *responseString = [self callPHPScript:@"getRestaurantMenu" :getParams];
     
-    return [recievedData isEqualToString:@"1"];
+    Menu *menu = [[Menu alloc] initWithMenuItems:responseString];
+    return menu;
 }
+
+-(void) setRestaurantRating : (NSString *) username : (NSString *) password : (NSString*) idFSRestaurant : (int) rating
+{
+    NSDictionary * getParams =
+    @{
+      @"username" : username,
+      @"password" : password,
+      @"idFSRestaurant" : idFSRestaurant,
+      @"rating" : [ NSString stringWithFormat: @"%d", rating]
+      };
+    
+    [self callPHPScript:@"setRestaurantRating" :getParams];
+}
+
+-(void) setRestaurantComments : (NSString *) username : (NSString *) password : (NSString*) idFSRestaurant : (NSString*) comments
+{
+    NSDictionary * getParams =
+    @{
+      @"username" : username,
+      @"password" : password,
+      @"idFSRestaurant" : idFSRestaurant,
+      @"comments" : comments
+      };
+    
+    [self callPHPScript:@"setRestaurantComments" :getParams];
+}
+
+-(void) orderedMenuItem : (NSString *) username : (NSString *) password : (NSString *) idFSRestaurant : (NSString *) idFSMenuItem :(int) rating
+{
+    NSDictionary * getParams =
+    @{
+      @"username" : username,
+      @"password" : password,
+      @"idFSMenuItem" : idFSMenuItem,
+      @"idFSRestaurant" : idFSRestaurant,
+      @"rating" : [NSString stringWithFormat: @"%d", rating]
+      };
+    
+    [self callPHPScript:@"orderedMenuItem" :getParams];
+}
+
 
 - (NSString *) callPHPScript : (NSString *)scriptName : (NSDictionary *) getParams
 {

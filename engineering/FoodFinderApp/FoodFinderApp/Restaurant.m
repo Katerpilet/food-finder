@@ -52,9 +52,17 @@
     {
         _priceRating = [ jsonDictionary[ @"priceRating" ] intValue ];
     }
+    if ( ! [ jsonDictionary[@"photoURL" ] isKindOfClass:[ NSNull class ] ] )
+    {
+        _photoURL = jsonDictionary[ @"photoURL" ];
+    }
     if ( ! [ jsonDictionary[@"userRating" ] isKindOfClass:[ NSNull class ] ] )
     {
         _userRating = [ jsonDictionary[ @"userRating" ] intValue ];
+    }
+    if ( ! [ jsonDictionary[@"userComments" ] isKindOfClass:[ NSNull class ] ] )
+    {
+        _userComments = jsonDictionary[ @"userComments" ];
     }
 }
 @end

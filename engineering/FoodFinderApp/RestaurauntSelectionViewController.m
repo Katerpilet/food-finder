@@ -54,18 +54,8 @@
     AppDelegate *appdelegate = [[UIApplication sharedApplication] delegate];
     _appManager = [appdelegate appManager];
     _sampleRestaurauntArray = [_appManager getRestaurauntList];
-    
-    for( int i = 0; i < [_sampleRestaurauntArray count]; ++i)
-    {
-        Restaurant* currentRestauraut = _sampleRestaurauntArray[ i ];
-        _restaurauntNameToId[ currentRestauraut.name ] = currentRestauraut;
-    }
-    
-    Restaurant* firstRestauraunt = _sampleRestaurauntArray[ 0 ];
-    // Use first piece of data to populate the table
-    restaurauntName.text = firstRestauraunt.name;
-    restaurauntLocation.text = firstRestauraunt.address;
-    restaurauntPrice.text = [self getPrice : firstRestauraunt.priceRating ];
+
+    [self initializeRestaurantList:_sampleRestaurauntArray];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,4 +98,65 @@
     }
     navigationController.currentRestauraunt = _restaurauntNameToId[ selectedRestauraunt ];
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self setMovedViewUp:NO];
+    [self.view endEditing:YES];
+    NSArray* restaurantList = [_appManager searchForRestaurants:searchBar.text];
+    [self initializeRestaurantList:restaurantList];
+    [restaurantTableView reloadData];
+}
+
+-(void)initializeRestaurantList : (NSArray*) restaurantList
+{
+    _sampleRestaurauntArray = restaurantList;
+    for( int i = 0; i < [_sampleRestaurauntArray count]; ++i)
+    {
+        Restaurant* currentRestauraut = _sampleRestaurauntArray[ i ];
+        _restaurauntNameToId[ currentRestauraut.name ] = currentRestauraut;
+    }
+    
+    Restaurant* firstRestauraunt = _sampleRestaurauntArray[ 0 ];
+    // Use first piece of data to populate the table
+    restaurauntName.text = firstRestauraunt.name;
+    restaurauntLocation.text = firstRestauraunt.address;
+    restaurauntPrice.text = [self getPrice : firstRestauraunt.priceRating ];
+    
+    NSData *urlData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:firstRestauraunt.photoURL]];
+    UIImage *urlImage = [[UIImage alloc] initWithData:urlData];
+    [restaurantImage setImage:urlImage];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    [self setMovedViewUp:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self setMovedViewUp:NO];
+    
+    [self.view endEditing:YES];
+}
+
+-(void)setMovedViewUp:(BOOL)moveUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:.3];
+    
+    CGRect rect = self.view.frame;
+    if( moveUp )
+    {
+        rect.origin.y -= OFFSET_FOR_KEYBOARD;
+        rect.size.height += OFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        rect.origin.y += OFFSET_FOR_KEYBOARD;
+        rect.size.height -= OFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    [UIView commitAnimations];
+}
+
+
 @end
